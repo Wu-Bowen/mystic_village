@@ -1,0 +1,38 @@
+{
+  "name": "mystic_village",
+  "version": "1.0.0",
+  "description": "website for mystic village apartments",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "webpack serve --config webpack.config.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Wu-Bowen/mystic_village.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Wu-Bowen/mystic_village/issues"
+  },
+  "homepage": "https://github.com/Wu-Bowen/mystic_village#readme",
+  "devDependencies": {
+    "@babel/core": "^7.16.7",
+    "@babel/plugin-proposal-class-properties": "^7.16.7",
+    "@babel/preset-react": "^7.16.7",
+    "babel-loader": "^8.2.3",
+    "babel-preset-react": "^6.24.1",
+    "css-loader": "^6.5.1",
+    "html-webpack-plugin": "^5.5.0",
+    "style-loader": "^3.3.1",
+    "webpack": "^5.66.0",
+    "webpack-cli": "^4.9.1",
+    "webpack-dev-server": "^4.7.3"
+  },
+  "dependencies": {
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2"
+  }
+}
