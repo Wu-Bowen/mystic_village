@@ -1,2 +1,2 @@
-# mystic_village
-website for mystic village apartments
+# Mystic Village Apartments
+Website for Mystic Village Apartments
