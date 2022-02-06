@@ -1,34 +1,36 @@
 {
-  "name": "mystic_village",
-  "version": "1.0.0",
-  "description": "website for mystic village apartments",
-  "main": "index.tsx",
-  "scripts": {
-    "build": "webpack --config webpack.config.js"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/Wu-Bowen/mystic_village.git"
-  },
-  "keywords": [],
-  "author": "ericwu692@yahoo.com",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/Wu-Bowen/mystic_village/issues"
-  },
-  "homepage": "https://github.com/Wu-Bowen/mystic_village#readme",
-  "dependencies": {
-    "react": "^16.12.0",
-    "react-dom": "^16.12.0"
-  },
-  "devDependencies": {
-    "@types/react": "^16.8.24",
-    "@types/react-dom": "^16.0.5",
-    "@types/webpack": "4.1.4",
-    "html-webpack-plugin": "^4.5.2",
-    "ts-loader": "^6.2.1",
-    "typescript": "^3.4.3",
-    "webpack": "^4.41.5",
-    "webpack-cli": "^3.3.10"
-  }
+    "name": "mystic_village",
+    "version": "1.0.0",
+    "description": "website for mystic village apartments",
+    "main": "index.tsx",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1",
+        "build": "webpack --config webpack.config.js"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/Wu-Bowen/mystic_village.git"
+    },
+    "keywords": [],
+    "author": "ericwu692@yahoo.com",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/Wu-Bowen/mystic_village/issues"
+    },
+    "homepage": "https://github.com/Wu-Bowen/mystic_village#readme",
+    "dependencies": {
+        "react": "^16.12.0",
+        "react-dom": "^16.12.0"
+    },
+    "devDependencies": {
+        "@fluentui/react": "^8.49.7",
+        "@types/react": "^16.8.24",
+        "@types/react-dom": "^16.0.5",
+        "@types/webpack": "4.1.4",
+        "html-webpack-plugin": "^4.5.2",
+        "ts-loader": "^6.2.1",
+        "typescript": "^3.4.3",
+        "webpack": "^4.41.5",
+        "webpack-cli": "^3.3.10"
+    }
 }
