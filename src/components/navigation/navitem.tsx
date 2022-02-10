@@ -7,14 +7,14 @@ type NavItemProps = {
 };
 
 export const NavItem = ({ name, location }: NavItemProps) => {
-    const _alertClicked = (): void => {
+    const alertClicked = (): void => {
         alert(name);
     };
 
     return (
         <PrimaryButton
             text={name}
-            onClick={_alertClicked}
+            onClick={alertClicked}
             allowDisabledFocus
             disabled={false}
         />
