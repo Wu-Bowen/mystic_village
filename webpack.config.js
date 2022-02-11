@@ -15,6 +15,8 @@ module.exports = {
     devServer: {
         historyApiFallback: true,
     },
+    devtool: "eval-source-map",
+    target: 'web',
     module: {
         rules: [
             {
@@ -25,7 +27,7 @@ module.exports = {
             {
                 test: /\.(s(a|c)ss)$/,
                 use: ['style-loader', 'css-loader', 'sass-loader']
-            }
+            },
         ],
     },
     resolve: {
