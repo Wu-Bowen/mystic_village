@@ -4,6 +4,7 @@ import {
     ActionButton,
     IButtonStyles,
 } from '@fluentui/react/lib/Button';
+import { useNavigate } from 'react-router-dom';
 
 interface NavItemProps {
     name: string;
@@ -41,15 +42,17 @@ export const NavItem = ({
     buttonType,
     location,
 }: NavItemProps): JSX.Element => {
-    const alertClicked = (): void => {
-        alert(name);
+    const navigate = useNavigate();
+
+    const linkClicked = (location: string): void => {
+        navigate(location);
     };
     if (buttonType === 'portalButton') {
         return (
             <PrimaryButton
                 styles={portalButtonStyles}
                 text={name}
-                onClick={alertClicked}
+                onClick={() => linkClicked(location)}
                 allowDisabledFocus
                 disabled={false}
             />
@@ -59,7 +62,7 @@ export const NavItem = ({
         <ActionButton
             styles={menuButtonStyles}
             text={name}
-            onClick={alertClicked}
+            onClick={() => linkClicked(location)}
             allowDisabledFocus
             disabled={false}
         />

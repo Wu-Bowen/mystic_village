@@ -2,5 +2,5 @@
     float: right;
     display: flex;
     flex-direction: column;
-    margin-right: 10vw;
+    margin-right: clamp(40px, 10vw, 200px);
 }
