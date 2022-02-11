@@ -2,7 +2,7 @@ import React from 'react';
 import { NavItem } from './navitem';
 import '../scss/navmenu.scss';
 
-export const NavMenu = () => (
+export const NavMenu = (): JSX.Element => (
     <div className="menu">
         <NavItem name="Our Community" />
         <NavItem name="Available Apartments" />

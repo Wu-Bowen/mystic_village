@@ -4,7 +4,6 @@ import {
     ActionButton,
     IButtonStyles,
 } from '@fluentui/react/lib/Button';
-import '../scss/navitem.scss';
 
 interface NavItemProps {
     name: string;
@@ -18,15 +17,30 @@ const portalButtonStyles: IButtonStyles = {
         width: '175px',
         backgroundColor: '#1d2959',
         borderColor: '#1d2959',
+        borderRadius: '8px',
         color: '#f3d89e',
+        fontSize: '18px',
+        height: '50px',
     },
     rootHovered: {
         backgroundColor: '#28397d',
+        borderColor: '#28397d',
         color: '#f3d89e',
     },
 };
 
-export const NavItem = ({ name, buttonType, location }: NavItemProps) => {
+const menuButtonStyles: IButtonStyles = {
+    root: {
+        margin: '0 4vw 40px 4vw',
+        fontSize: '18px',
+    },
+};
+
+export const NavItem = ({
+    name,
+    buttonType,
+    location,
+}: NavItemProps): JSX.Element => {
     const alertClicked = (): void => {
         alert(name);
     };
@@ -43,7 +57,7 @@ export const NavItem = ({ name, buttonType, location }: NavItemProps) => {
     }
     return (
         <ActionButton
-            className="menuButton"
+            styles={menuButtonStyles}
             text={name}
             onClick={alertClicked}
             allowDisabledFocus

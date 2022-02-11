@@ -1,7 +1,7 @@
 import React from 'react';
 import { Navbar } from './navigation/navbar';
 
-export const Home = () => (
+export const Home = (): JSX.Element => (
     <>
         <Navbar />
     </>
