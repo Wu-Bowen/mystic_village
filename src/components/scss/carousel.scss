@@ -1,0 +1,24 @@
+.carousel.carousel-slider {
+    margin: auto;
+}
+.carousel {
+    display: flex;
+}
+.carousel .thumbs-wrapper {
+    margin: auto;
+    overflow: hidden;
+}
+.carousel .thumb:focus {
+    border: none;
+    outline: none;
+}
+.carousel .thumb.selected,
+.carousel .thumb:hover {
+    border: none;
+}
+.carousel .thumb {
+    border: none;
+}
+.carousel .thumb {
+    margin: 0 20px 0 20px;
+}
