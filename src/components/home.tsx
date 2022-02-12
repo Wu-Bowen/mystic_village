@@ -2,6 +2,7 @@ import React from 'react';
 import { Navbar } from './navigation';
 import { Homepage } from './homepage';
 import { Community } from './community';
+import { Footer } from './footer';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
 export const Home = (): JSX.Element => (
@@ -12,6 +13,7 @@ export const Home = (): JSX.Element => (
                 <Route path="/" element={<Homepage />}></Route>
                 <Route path="community" element={<Community />}></Route>
             </Routes>
+            <Footer />
         </BrowserRouter>
     </>
 );
