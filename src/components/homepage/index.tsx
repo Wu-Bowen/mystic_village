@@ -54,7 +54,7 @@ export const Homepage = (): JSX.Element => {
             <Carousel
                 showIndicators={false}
                 showArrows={false}
-                width={'65%'}
+                width={'55%'}
                 thumbWidth={30}
                 interval={10000}
                 autoPlay

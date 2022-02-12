@@ -3,6 +3,7 @@
 }
 .carousel {
     display: flex;
+    border-radius: 10px;
 }
 .carousel .thumbs-wrapper {
     margin: auto;
@@ -18,7 +19,8 @@
 }
 .carousel .thumb {
     border: none;
-}
-.carousel .thumb {
     margin: 0 20px 0 20px;
+}
+.carousel .thumbs {
+    padding: 0;
 }
