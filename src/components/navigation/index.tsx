@@ -3,7 +3,7 @@ import { NavPortal } from './navportal';
 import { NavMenu } from './navmenu';
 import sign from './../../assets/images/sign.png';
 import { Link } from 'react-router-dom';
-import '../scss/navigation.scss';
+import '../styles/navigation.scss';
 
 export const Navbar = (): JSX.Element => (
     <div className="nav">

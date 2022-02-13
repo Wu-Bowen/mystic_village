@@ -1,7 +1,7 @@
 import React, { ReactChild, useState } from 'react';
-import building from './../../assets/images/building.jpg';
+import building from './../../../assets/images/building.jpg';
 import 'react-responsive-carousel/lib/styles/carousel.min.css';
-import '../scss/carousel.scss';
+import '../../styles/carousel.scss';
 import { Carousel } from 'react-responsive-carousel';
 import { IIconProps, initializeIcons } from '@fluentui/react';
 import { IconButton, IButtonStyles } from '@fluentui/react/lib/Button';
@@ -62,15 +62,15 @@ export const ImageCarousel = (): JSX.Element => {
         >
             <div key={0}>
                 <img src={building} />
-                <p className="legend">Image 1</p>
+                <p className="legend">I am a building</p>
             </div>
             <div key={1}>
                 <img src={building} />
-                <p className="legend">Image 2</p>
+                <p className="legend">I am the same building</p>
             </div>
             <div key={2}>
                 <img src={building} />
-                <p className="legend">Image 3</p>
+                <p className="legend">I am also the same building</p>
             </div>
         </Carousel>
     );

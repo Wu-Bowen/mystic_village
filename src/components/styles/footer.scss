@@ -1,3 +1,4 @@
+@use 'variables' as var;
 .footer {
     height: fit-content;
     background-color: #1d2959;
@@ -6,7 +7,7 @@
     grid-template-columns: 1fr 1fr 1fr;
 }
 .officeHours {
-    border-right: 2px solid #f3d89e;
+    border-right: 2px solid var.$gold;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
@@ -21,7 +22,7 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    border-right: 2px solid #f3d89e;
+    border-right: 2px solid var.$gold;
 }
 .legal {
     padding-top: 5vh;
@@ -30,7 +31,7 @@
     align-items: flex-start;
     justify-content: center;
     margin-left: 40%;
-    border-right: 2px solid #f3d89e;
+    border-right: 2px solid var.$gold;
 }
 .time {
     display: flex;

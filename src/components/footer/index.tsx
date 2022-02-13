@@ -1,5 +1,5 @@
 import React from 'react';
-import '../scss/footer.scss';
+import '../styles/footer.scss';
 import { Icon } from '@fluentui/react/lib/Icon';
 
 const PhoneIcon = (): JSX.Element => {

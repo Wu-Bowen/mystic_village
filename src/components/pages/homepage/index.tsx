@@ -1,6 +1,6 @@
 import React from 'react';
 import { ImageCarousel } from './imageCarousel';
-import '../scss/homepage.scss';
+import '../../styles/homepage.scss';
 export const Homepage = (): JSX.Element => {
     return (
         <div className="homepage">
