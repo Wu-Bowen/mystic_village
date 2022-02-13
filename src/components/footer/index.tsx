@@ -23,26 +23,26 @@ export const Footer = (): JSX.Element => (
                 <p> 9am - 6pm</p>
             </div>
             <div className="time">
-                <p className="date">Monday</p>
+                <p className="date">Tuesday</p>
                 <p> 9am - 6pm</p>
             </div>
             <div className="time">
-                <p className="date">Monday</p>
+                <p className="date">Wednesday</p>
                 <p> 9am - 6pm</p>
             </div>
             <div className="time">
-                <p className="date">Monday</p>
+                <p className="date">Thursday</p>
                 <p> 9am - 6pm</p>
             </div>
             <div className="time">
-                <p className="date">Monday</p>
+                <p className="date">Friday</p>
                 <p> 9am - 6pm</p>
             </div>
         </div>
         <div className="contact">
             <div className="contact-item">
                 <PhoneIcon />
-                <div className={'contact-text'}>860 -857 -0369</div>
+                <div className={'contact-text'}>(860)-857-0369</div>
             </div>
             <div className="contact-item">
                 <MailIcon />

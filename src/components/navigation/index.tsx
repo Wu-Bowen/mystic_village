@@ -1,10 +1,20 @@
 import React from 'react';
 import { NavPortal } from './navportal';
 import { NavMenu } from './navmenu';
+import sign from './../../assets/images/sign.png';
+import { Link } from 'react-router-dom';
+import '../scss/navigation.scss';
 
 export const Navbar = (): JSX.Element => (
     <div className="nav">
         <NavPortal />
-        <NavMenu />
+        <div className="navTop">
+            <div className="logo">
+                <Link to={'./'}>
+                    <img src={sign} width={400} />
+                </Link>
+            </div>
+            <NavMenu />
+        </div>
     </div>
 );
