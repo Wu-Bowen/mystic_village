@@ -1,6 +1,5 @@
 import React from 'react';
 import { NavItem } from './navitem';
-import '../styles/navmenu.scss';
 
 export const NavMenu = (): JSX.Element => (
     <div className="menu">

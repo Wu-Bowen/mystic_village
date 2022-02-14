@@ -1,6 +1,5 @@
 import React from 'react';
 import { NavItem } from './navitem';
-import '../styles/navportal.scss';
 
 export const NavPortal = (): JSX.Element => (
     <div className="portal">

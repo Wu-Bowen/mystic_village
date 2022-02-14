@@ -39,7 +39,7 @@ export const Footer = (): JSX.Element => (
                 <p> 9am - 6pm</p>
             </div>
         </div>
-        <div className="contact">
+        <div className="contactinfo">
             <div className="contact-item">
                 <PhoneIcon />
                 <div className={'contact-text'}>(860)-857-0369</div>
