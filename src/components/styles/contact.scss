@@ -27,6 +27,11 @@ form {
     margin: 0 auto;
 }
 
+.formBunch {
+    display: flex;
+    width: 100%;
+}
+
 textarea,
 select,
 input {
@@ -39,8 +44,13 @@ input {
     border-radius: 4px;
     border: 1px solid var.$light-grey;
     padding: 10px 15px;
+    margin: 10px;
     margin-bottom: 15px;
     font-size: 14px;
+}
+
+.message {
+    height: 100px;
 }
 
 input[type='submit'],

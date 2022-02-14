@@ -28,7 +28,11 @@ export const CustomForm = (): JSX.Element => {
                     placeholder={'Phone Number'}
                 />
             </div>
-            <textarea {...register('message')} placeholder={'Message'} />
+            <textarea
+                {...register('message')}
+                placeholder={'Message'}
+                className={'message'}
+            />
             <p>{data}</p>
             <input type={'submit'} value={'send message'} />
         </form>
