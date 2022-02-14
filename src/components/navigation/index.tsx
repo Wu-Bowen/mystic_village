@@ -6,10 +6,10 @@ import { Link } from 'react-router-dom';
 import '../styles/navigation.scss';
 
 export const Navbar = (): JSX.Element => (
-    <div className="nav">
+    <div className={'nav'}>
         <NavPortal />
-        <div className="navTop">
-            <div className="logo">
+        <div className={'navTop'}>
+            <div className={'logo'}>
                 <Link to={'./'}>
                     <img src={sign} width={400} />
                 </Link>

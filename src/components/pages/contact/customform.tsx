@@ -14,13 +14,23 @@ export const CustomForm = (): JSX.Element => {
     const [data, setData] = useState('');
     return (
         <form>
-            <input {...register('firstName')} placeholder="First name" />
-            <input {...register('lastName')} placeholder="Last Name" />
-            <input {...register('emailAddress')} placeholder="Email Address" />
-            <input {...register('phoneNumber')} placeholder="Phone Number" />
-            <textarea {...register('message')} placeholder="Message" />
+            <div className={'formBunch'}>
+                <input {...register('firstName')} placeholder={'First name'} />
+                <input {...register('lastName')} placeholder={'Last Name'} />
+            </div>
+            <div className={'formBunch'}>
+                <input
+                    {...register('emailAddress')}
+                    placeholder={'Email Address'}
+                />
+                <input
+                    {...register('phoneNumber')}
+                    placeholder={'Phone Number'}
+                />
+            </div>
+            <textarea {...register('message')} placeholder={'Message'} />
             <p>{data}</p>
-            <input type="submit" value="send message" />
+            <input type={'submit'} value={'send message'} />
         </form>
     );
 };

@@ -12,7 +12,7 @@ export const NotFound = () => {
                     site! :)
                 </p>
                 <p>
-                    <Link to="/">Back To Safety</Link>
+                    <Link to={'/'}>Back To Safety</Link>
                 </p>
             </div>
         </div>

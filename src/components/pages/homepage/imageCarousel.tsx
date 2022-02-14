@@ -40,7 +40,7 @@ export const ImageCarousel = (): JSX.Element => {
                             ? buttonSelectedStyles
                             : buttonStyles
                     }
-                    aria-label="Dot Icon"
+                    aria-label={'Dot Icon'}
                 />
             );
         });
@@ -62,15 +62,15 @@ export const ImageCarousel = (): JSX.Element => {
         >
             <div key={0}>
                 <img src={building} />
-                <p className="legend">I am a building</p>
+                <p className={'legend'}>I am a building</p>
             </div>
             <div key={1}>
                 <img src={building} />
-                <p className="legend">I am the same building</p>
+                <p className={'legend'}>I am the same building</p>
             </div>
             <div key={2}>
                 <img src={building} />
-                <p className="legend">I am also the same building</p>
+                <p className={'legend'}>I am also the same building</p>
             </div>
         </Carousel>
     );
