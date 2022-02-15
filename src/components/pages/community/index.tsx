@@ -44,7 +44,7 @@ export const Community = (): JSX.Element => {
             </h3>
             <h1>Highlights</h1>
             <h3 className="homepageText">
-                <ul style={{ listStyle: 'none' }}>
+                <ul style={{ listStyle: 'square' }}>
                     <li> Bowling </li>
                     <li> Swimming </li>
                     <li> Food </li>

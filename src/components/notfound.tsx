@@ -1,10 +1,10 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-export const NotFound = () => {
+export const NotFound = (): JSX.Element => {
     return (
-        <div>
-            <div>
-                <p> 404 </p>
+        <>
+            <h1> 404 </h1>
+            <div className={'margin'} style={{ paddingBottom: '400px' }}>
                 <p> No es bueno </p>
                 <p>
                     It looks like you've reached a URL that doesn't exist.
@@ -15,6 +15,6 @@ export const NotFound = () => {
                     <Link to={'/'}>Back To Safety</Link>
                 </p>
             </div>
-        </div>
+        </>
     );
 };
