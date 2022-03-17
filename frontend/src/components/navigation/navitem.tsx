@@ -5,11 +5,14 @@ import {
     IButtonStyles,
 } from '@fluentui/react/lib/Button';
 import { useNavigate } from 'react-router-dom';
+import { DirectionalHint, TooltipHost } from '@fluentui/react';
+import { useId } from '@fluentui/react-hooks';
 
 interface NavItemProps {
     name: string;
     buttonType?: string;
     location?: string;
+    disabled?: boolean;
 }
 
 const portalButtonStyles: IButtonStyles = {
@@ -37,24 +40,43 @@ const menuButtonStyles: IButtonStyles = {
     },
 };
 
+const calloutProps = { gapSpace: 0 };
+
 export const NavItem = ({
     name,
     buttonType,
     location,
+    disabled,
 }: NavItemProps): JSX.Element => {
     const navigate = useNavigate();
+    const tooltipId = useId('tooltip');
 
     const linkClicked = (location: string): void => {
         navigate(location);
     };
     if (buttonType === 'portalButton') {
-        return (
+        return disabled ? (
+            <TooltipHost
+                content="Currently Under Development"
+                id={tooltipId}
+                calloutProps={calloutProps}
+                directionalHint={DirectionalHint.leftCenter}
+            >
+                <PrimaryButton
+                    styles={portalButtonStyles}
+                    text={name}
+                    onClick={() => linkClicked(location)}
+                    allowDisabledFocus
+                    disabled={disabled}
+                />
+            </TooltipHost>
+        ) : (
             <PrimaryButton
                 styles={portalButtonStyles}
                 text={name}
                 onClick={() => linkClicked(location)}
                 allowDisabledFocus
-                disabled={false}
+                disabled={disabled}
             />
         );
     }
