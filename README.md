@@ -2,8 +2,11 @@
 
 Website for Mystic Village Apartments
 
+To build static page:
 npm run build
 live-server in dist
+
+run.sh to run bash script for server and frontend
 
 ## 🎨 Color Reference
 

@@ -54,6 +54,7 @@ export const Apartments = (): JSX.Element => {
                     onClick={() => bedroomClick()}
                     allowDisabledFocus
                 />
+                {/* <p>{!message ? 'Loading...' : message}</p> */}
             </div>
             <div className={'apartmentDetails'}>
                 <img
