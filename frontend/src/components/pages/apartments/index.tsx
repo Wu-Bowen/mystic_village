@@ -23,6 +23,25 @@ const portalButtonStyles: IButtonStyles = {
     },
 };
 
+const portalButtonStylesClicked: IButtonStyles = {
+    root: {
+        margin: '10px',
+        width: '150px',
+        backgroundColor: '#1d2959',
+        borderColor: '#1d2959',
+        borderRadius: '16px',
+        color: '#f3d89e',
+        fontSize: '18px',
+        height: '50px',
+    },
+    rootHovered: {
+        backgroundColor: '#1d2959',
+        borderColor: '#1d2959',
+        color: '#f3d89e',
+        cursor: 'auto',
+    },
+};
+
 export const Apartments = (): JSX.Element => {
     const [studio, setStudio] = useState(true);
     // const [message, setMessage] = useState(null);
@@ -43,13 +62,17 @@ export const Apartments = (): JSX.Element => {
         <div className={'Apartments'}>
             <div className={'apartmentButtons'}>
                 <PrimaryButton
-                    styles={portalButtonStyles}
+                    styles={
+                        studio ? portalButtonStylesClicked : portalButtonStyles
+                    }
                     text={'Studio'}
                     onClick={() => studioClick()}
                     allowDisabledFocus
                 />
                 <PrimaryButton
-                    styles={portalButtonStyles}
+                    styles={
+                        studio ? portalButtonStyles : portalButtonStylesClicked
+                    }
                     text={'1 Bedroom'}
                     onClick={() => bedroomClick()}
                     allowDisabledFocus
