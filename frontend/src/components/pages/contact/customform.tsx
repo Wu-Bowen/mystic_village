@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useForm } from 'react-hook-form';
 
-type Form = {
+type FormData = {
     firstName: string;
     lastName?: string;
     emailAddress?: string;
@@ -10,30 +10,60 @@ type Form = {
 };
 
 export const CustomForm = (): JSX.Element => {
-    const { register, handleSubmit } = useForm();
-    const [data, setData] = useState('');
+    const {
+        register,
+        handleSubmit,
+        formState: { errors },
+    } = useForm();
+    const onSubmit = (data: FormData) => console.log(data);
+    console.log(errors);
     return (
-        <form>
+        <form onSubmit={handleSubmit(onSubmit)}>
             <div className={'formBunch'}>
-                <input {...register('firstName')} placeholder={'First name'} />
-                <input {...register('lastName')} placeholder={'Last Name'} />
+                <input
+                    {...register('firstName')}
+                    placeholder={'First name'}
+                    required={true}
+                />
+                <input
+                    {...register('lastName')}
+                    placeholder={'Last Name'}
+                    required={true}
+                />
             </div>
             <div className={'formBunch'}>
                 <input
-                    {...register('emailAddress')}
-                    placeholder={'Email Address'}
+                    type="email"
+                    placeholder="Email"
+                    {...register('Email', {
+                        required: true,
+                        pattern: /^\S+@\S+$/i,
+                    })}
                 />
                 <input
-                    {...register('phoneNumber')}
-                    placeholder={'Phone Number'}
+                    type="tel"
+                    placeholder="Mobile number"
+                    {...register('Mobile number', {
+                        required: true,
+                        minLength: {
+                            value: 10,
+                            message:
+                                'Phone number must be at least 10 digits long',
+                        },
+                        maxLength: 12,
+                        pattern: {
+                            value: /^(\+\d{1,2}\s)?\(?\d{3}\)?[\s.-]?\d{3}[\s.-]?\d{4}$/,
+                            message: 'Please enter a valid Phone Number',
+                        },
+                    })}
                 />
             </div>
             <textarea
                 {...register('message')}
                 placeholder={'Message'}
                 className={'message'}
+                required={true}
             />
-            <p>{data}</p>
             <input type={'submit'} value={'send message'} />
         </form>
     );

@@ -91,7 +91,7 @@ export const Apartments = (): JSX.Element => {
                             Details on this{' '}
                             <a
                                 href={
-                                    'https://www.airbnb.com/wishlists/1017702808?s=42'
+                                    'https://www.airbnb.com/wishlists/v/1095462513?s=67&unique_share_id=b09e4978-dcf2-402a-9b78-c044b45c51fd'
                                 }
                                 target="_blank"
                             >
