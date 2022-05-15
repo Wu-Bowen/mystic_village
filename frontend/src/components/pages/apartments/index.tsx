@@ -5,65 +5,73 @@ import floorplanStudio from './../../../assets/images/floorplanStudio.jpg';
 import { NavItem } from '../../navigation/navitem';
 import '../../styles/apartments.scss';
 
-const portalButtonStyles: IButtonStyles = {
+const inactiveButton: IButtonStyles = {
     root: {
         margin: '10px',
-        width: '150px',
-        backgroundColor: '#1d2959',
-        borderColor: '#1d2959',
+        backgroundColor: '#adc6ed',
+        borderColor: '#adc6ed',
         borderRadius: '16px',
-        color: '#f3d89e',
+        color: 'black',
         fontSize: '18px',
         height: '50px',
     },
     rootHovered: {
-        backgroundColor: '#28397d',
-        borderColor: '#28397d',
-        color: '#f3d89e',
+        backgroundColor: '#213069',
+        borderColor: '#1d2959',
+        color: '#dfe6f2',
+    },
+    rootPressed: {
+        backgroundColor: '#213069',
+        borderColor: '#1d2959',
+        color: '#dfe6f2',
     },
 };
 
-const portalButtonStylesClicked: IButtonStyles = {
+const activeButton: IButtonStyles = {
     root: {
         margin: '10px',
-        width: '150px',
         backgroundColor: '#1d2959',
         borderColor: '#1d2959',
         borderRadius: '16px',
-        color: '#f3d89e',
+        color: '#dfe6f2',
         fontSize: '18px',
         height: '50px',
     },
     rootHovered: {
         backgroundColor: '#1d2959',
         borderColor: '#1d2959',
-        color: '#f3d89e',
-        cursor: 'auto',
+        color: '#dfe6f2',
+    },
+    rootPressed: {
+        backgroundColor: '#1d2959',
+        borderColor: '#1d2959',
+        color: '#dfe6f2',
     },
 };
 
 export const Apartments = (): JSX.Element => {
-    const [studio, setStudio] = useState(true);
-    // const [message, setMessage] = useState(null);
-    // useEffect(() => {
-    //     fetch('http://localhost:3001/api')
-    //         .then((res) => res.json())
-    //         .then((data) => setMessage(data?.message));
-    // }, []);
-
+    const [currentOption, setCurrentOption] = useState('studio');
     const studioClick = () => {
-        setStudio(true);
+        setCurrentOption('studio');
     };
     const bedroomClick = () => {
-        setStudio(false);
+        setCurrentOption('bedroom');
+    };
+    const airbnbClick = () => {
+        setCurrentOption('airbnb');
     };
 
+    useEffect(() => {
+        console.log(currentOption);
+    }, [currentOption]);
     return (
         <div className="Apartments">
             <div className="apartmentButtons">
                 <PrimaryButton
                     styles={
-                        studio ? portalButtonStylesClicked : portalButtonStyles
+                        currentOption === 'studio'
+                            ? activeButton
+                            : inactiveButton
                     }
                     text="Studio"
                     onClick={() => studioClick()}
@@ -71,55 +79,24 @@ export const Apartments = (): JSX.Element => {
                 />
                 <PrimaryButton
                     styles={
-                        studio ? portalButtonStyles : portalButtonStylesClicked
+                        currentOption === 'bedroom'
+                            ? activeButton
+                            : inactiveButton
                     }
                     text="1 Bedroom"
                     onClick={() => bedroomClick()}
                     allowDisabledFocus
                 />
-                {/* <p>{!message ? 'Loading...' : message}</p> */}
-            </div>
-            <div className="apartmentDetails">
-                <img
-                    className="apartmentDetails-image"
-                    src={studio ? floorplanStudio : floorplanBedroom}
+                <PrimaryButton
+                    styles={
+                        currentOption === 'airbnb'
+                            ? activeButton
+                            : inactiveButton
+                    }
+                    text="Airbnb"
+                    onClick={() => airbnbClick()}
+                    allowDisabledFocus
                 />
-                <div className="apartmentDetails-text">
-                    <div className="apartmentDetails-text-airbnb">
-                        <h2> Airbnb Booking </h2>
-                        <p>
-                            Details on this" "
-                            <a
-                                href={
-                                    'https://www.airbnb.com/wishlists/v/1095462513?s=67&unique_share_id=b09e4978-dcf2-402a-9b78-c044b45c51fd'
-                                }
-                                target="_blank"
-                            >
-                                link
-                            </a>
-                        </p>
-                    </div>
-                    <div className="apartmentDetails-text-rentals">
-                        <h2> Rentals </h2>
-                        <ul>
-                            <li>Limited to Two People</li>
-                            <li>
-                                Starting Price: {studio ? ' 1000$' : ' 1200$'}
-                            </li>
-                            <li>Leasing Period: 1 year</li>
-                        </ul>
-                        <NavItem
-                            buttonType="portalButton"
-                            name="Schedule a Tour"
-                            location="tour"
-                            disabled={true}
-                        />
-                    </div>
-                </div>
-            </div>
-            <div>
-                <h1> Gallery </h1>
-                <h1> Shared Infastructure </h1>
             </div>
         </div>
     );
