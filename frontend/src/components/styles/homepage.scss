@@ -1,24 +1,15 @@
+@use 'variables' as var;
 h1 {
     margin-left: 5%;
     font-family: 'CostarBrownRegular', sans-serif;
+    color: var.$navy;
 }
-h2 {
-    font-family: 'CostarBrownLight', sans-serif;
-    font-weight: 600;
-}
-h3 {
-    font-family: 'CostarBrownLight', sans-serif;
-    font-weight: 400;
-}
-.margin {
-    margin-left: 5%;
-}
-
 .homepageText {
     font-family: 'CostarBrownLight', sans-serif;
     font-size: 28px;
     margin-left: 5%;
     margin-right: 5%;
+    color: var.$navy;
 }
 
 .homepage {

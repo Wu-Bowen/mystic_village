@@ -13,11 +13,11 @@ export const Home = (): JSX.Element => (
         <BrowserRouter>
             <Navbar />
             <Routes>
-                <Route path={'/'} element={<Homepage />} />
-                <Route path={'community'} element={<Community />} />
-                <Route path={'contact'} element={<Contact />} />
-                <Route path={'apartments'} element={<Apartments />} />
-                <Route path={'*'} element={<NotFound />} />
+                <Route path="/" element={<Homepage />} />
+                <Route path="community" element={<Community />} />
+                <Route path="contact" element={<Contact />} />
+                <Route path="apartments" element={<Apartments />} />
+                <Route path="*" element={<NotFound />} />
             </Routes>
             <Footer />
         </BrowserRouter>

@@ -19,19 +19,19 @@ export const CustomForm = (): JSX.Element => {
     console.log(errors);
     return (
         <form onSubmit={handleSubmit(onSubmit)}>
-            <div className={'formBunch'}>
+            <div className="formBunch">
                 <input
                     {...register('firstName')}
-                    placeholder={'First name'}
+                    placeholder="First name"
                     required={true}
                 />
                 <input
                     {...register('lastName')}
-                    placeholder={'Last Name'}
+                    placeholder="Last Name"
                     required={true}
                 />
             </div>
-            <div className={'formBunch'}>
+            <div className="formBunch">
                 <input
                     type="email"
                     placeholder="Email"
@@ -60,11 +60,11 @@ export const CustomForm = (): JSX.Element => {
             </div>
             <textarea
                 {...register('message')}
-                placeholder={'Message'}
-                className={'message'}
+                placeholder="Message"
+                className="message"
                 required={true}
             />
-            <input type={'submit'} value={'send message'} />
+            <input type="submit" value="send message" />
         </form>
     );
 };

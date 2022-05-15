@@ -59,13 +59,13 @@ export const Apartments = (): JSX.Element => {
     };
 
     return (
-        <div className={'Apartments'}>
-            <div className={'apartmentButtons'}>
+        <div className="Apartments">
+            <div className="apartmentButtons">
                 <PrimaryButton
                     styles={
                         studio ? portalButtonStylesClicked : portalButtonStyles
                     }
-                    text={'Studio'}
+                    text="Studio"
                     onClick={() => studioClick()}
                     allowDisabledFocus
                 />
@@ -73,22 +73,22 @@ export const Apartments = (): JSX.Element => {
                     styles={
                         studio ? portalButtonStyles : portalButtonStylesClicked
                     }
-                    text={'1 Bedroom'}
+                    text="1 Bedroom"
                     onClick={() => bedroomClick()}
                     allowDisabledFocus
                 />
                 {/* <p>{!message ? 'Loading...' : message}</p> */}
             </div>
-            <div className={'apartmentDetails'}>
+            <div className="apartmentDetails">
                 <img
-                    className={'apartmentDetails-image'}
+                    className="apartmentDetails-image"
                     src={studio ? floorplanStudio : floorplanBedroom}
                 />
-                <div className={'apartmentDetails-text'}>
-                    <div className={'apartmentDetails-text-airbnb'}>
+                <div className="apartmentDetails-text">
+                    <div className="apartmentDetails-text-airbnb">
                         <h2> Airbnb Booking </h2>
                         <p>
-                            Details on this{' '}
+                            Details on this" "
                             <a
                                 href={
                                     'https://www.airbnb.com/wishlists/v/1095462513?s=67&unique_share_id=b09e4978-dcf2-402a-9b78-c044b45c51fd'
@@ -99,7 +99,7 @@ export const Apartments = (): JSX.Element => {
                             </a>
                         </p>
                     </div>
-                    <div className={'apartmentDetails-text-rentals'}>
+                    <div className="apartmentDetails-text-rentals">
                         <h2> Rentals </h2>
                         <ul>
                             <li>Limited to Two People</li>
@@ -109,9 +109,9 @@ export const Apartments = (): JSX.Element => {
                             <li>Leasing Period: 1 year</li>
                         </ul>
                         <NavItem
-                            buttonType={'portalButton'}
-                            name={'Schedule a Tour'}
-                            location={'tour'}
+                            buttonType="portalButton"
+                            name="Schedule a Tour"
+                            location="tour"
                             disabled={true}
                         />
                     </div>

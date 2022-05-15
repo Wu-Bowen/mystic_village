@@ -3,16 +3,16 @@ import outside from './../../../assets/images/outside.jpg';
 
 export const Community = (): JSX.Element => {
     return (
-        <div className={'Community'}>
+        <div className="Community">
             <img
                 src={outside}
-                width={'45%'}
+                width="45%"
                 style={{
                     display: 'flex',
                     margin: '40px auto',
                     borderRadius: '10px',
                 }}
-                alt={'Image of Outside of Apartment'}
+                alt="Image of Outside of Apartment"
             />
 
             <h1> Our Neighborhood </h1>
