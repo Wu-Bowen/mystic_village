@@ -20,6 +20,17 @@
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     justify-items: center;
-    width: 35%;
+    width: 40%;
     margin-top: 40px;
+    @media (max-width: 1600px) {
+        width: 60%;
+    }
+    @media (max-width: 1000px) {
+        grid-template-columns: none;
+    }
+    .footer-content {
+        @media (max-width: 1000px) {
+            padding: 10px;
+        }
+    }
 }
