@@ -65,7 +65,7 @@ export const ImageCarousel = ({ images }: ImageCarouselProps): JSX.Element => {
             {images.map((image, i) => {
                 return (
                     <div key={i}>
-                        <img src={image} height= {'500px'} />
+                        <img src={image} height= {'800px'} />
                     </div>
                 );
             })}

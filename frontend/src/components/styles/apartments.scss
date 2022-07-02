@@ -8,4 +8,20 @@
 .apartment-details {
     display: grid;
     grid-template-columns: 1fr 1fr;
+    margin-bottom: 150px;
+}
+.amenity-section {
+    display: flex;
+    padding-bottom: 25px;
+}
+.amenity-left {
+    margin-left: 10%;
+}
+.amenity-right {
+    margin-left: 30%;
+}
+.amenity-icon {
+    width: 25px;
+    display: inline-block;
+    margin-right: 8px;
 }

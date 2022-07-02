@@ -18,6 +18,10 @@ import {
     bedroom6,
     bedroom7,
 } from './../../../assets/images/apartments/bedroom';
+import Laundry from '../../../assets/icons/laundry';
+import LightBulb from '../../../assets/icons/lightbulb';
+import Heat from '../../../assets/icons/heat';
+import Wifi from '../../../assets/icons/wifi';
 import '../../styles/apartments.scss';
 import { ImageCarousel } from '../homepage/imageCarousel';
 
@@ -146,8 +150,34 @@ export const Apartments = (): JSX.Element => {
             <div className={'apartment-details'}>
                 <div>
                     <h1>Apartment Amenties</h1>
-                    <div></div>
-                    <div></div>
+                    <div className="amenity-section">
+                        <div className="amenity-left">
+                            <div className="amenity-icon">
+                                <Laundry />
+                            </div>
+                            On-Site Laundry
+                        </div>
+                        <div className="amenity-right">
+                            <div className="amenity-icon">
+                                <LightBulb />
+                            </div>
+                            Electricity
+                        </div>
+                    </div>
+                    <div className="amenity-section">
+                        <div className="amenity-left">
+                            <div className="amenity-icon">
+                                <Heat />
+                            </div>
+                            Heating/Cooling
+                        </div>
+                        <div className="amenity-right">
+                            <div className="amenity-icon">
+                                <Wifi />
+                            </div>
+                            Wifi
+                        </div>
+                    </div>
                 </div>
                 <div>
                     <h1> Details</h1>

@@ -1,7 +1,6 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
-
 module.exports = {
     mode: 'development',
     entry: {
@@ -10,12 +9,12 @@ module.exports = {
     output: {
         path: path.resolve(__dirname, 'dist'),
         filename: 'index_bundle.js',
-        publicPath: '/'
+        publicPath: '/',
     },
     devServer: {
         historyApiFallback: true,
     },
-    devtool: "eval-source-map",
+    devtool: 'eval-source-map',
     target: 'web',
     module: {
         rules: [
@@ -26,13 +25,24 @@ module.exports = {
             },
             {
                 test: /\.(s?(a|c)ss)$/,
-                use: ['style-loader', 'css-loader', 'sass-loader']
+                use: ['style-loader', 'css-loader', 'sass-loader'],
             },
             {
                 test: /\.(jpg|png)$/,
                 use: {
                     loader: 'url-loader',
                 },
+            },
+            {
+                test: /\.svg$/,
+                use: [
+                    {
+                        loader: 'file-loader',
+                        options: {
+                            name: 'images/[hash]-[name].[ext]',
+                        },
+                    },
+                ],
             },
         ],
     },
