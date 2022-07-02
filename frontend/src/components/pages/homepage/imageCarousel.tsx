@@ -11,6 +11,9 @@ initializeIcons();
 interface newElement {
     key?: number;
 }
+export interface ImageCarouselProps {
+    images: string[];
+}
 
 const circleIcon: IIconProps = { iconName: 'CircleFill' };
 
@@ -27,7 +30,7 @@ const buttonSelectedStyles: IButtonStyles = {
     rootPressed: { backgroundColor: 'transparent' },
 };
 
-export const ImageCarousel = (): JSX.Element => {
+export const ImageCarousel = ({ images }: ImageCarouselProps): JSX.Element => {
     const [selectedDot, setSelectedDot] = useState(0);
     const customRenderThumb = (children: any): ReactChild[] => {
         return children.map((item: newElement) => {
@@ -51,7 +54,6 @@ export const ImageCarousel = (): JSX.Element => {
     return (
         <Carousel
             showIndicators={false}
-            showArrows={false}
             width="55%"
             thumbWidth={30}
             interval={10000}
@@ -60,18 +62,13 @@ export const ImageCarousel = (): JSX.Element => {
             renderThumbs={customRenderThumb}
             onChange={handleChange}
         >
-            <div key={0}>
-                <img src={building} />
-                <p className="legend">I am a building</p>
-            </div>
-            <div key={1}>
-                <img src={building} />
-                <p className="legend">I am the same building</p>
-            </div>
-            <div key={2}>
-                <img src={building} />
-                <p className="legend">I am also the same building</p>
-            </div>
+            {images.map((image, i) => {
+                return (
+                    <div key={i}>
+                        <img src={image} height= {'500px'} />
+                    </div>
+                );
+            })}
         </Carousel>
     );
 };

@@ -1,55 +1,101 @@
 import React from 'react';
-import outside from './../../../assets/images/outside.jpg';
-
+import '../../styles/community.scss';
+import community1 from './../../../assets/images/community/community1.png';
+import community2 from './../../../assets/images/community/community2.png';
+import community3 from './../../../assets/images/community/community3.png';
+import community4 from './../../../assets/images/community/community4.png';
+import community5 from './../../../assets/images/community/community5.png';
+import community6 from './../../../assets/images/community/community6.png';
 export const Community = (): JSX.Element => {
     return (
-        <div className="Community">
+        <div className="community">
+            <h1> Our Community </h1>
+
             <img
-                src={outside}
-                width="45%"
+                src={community1}
+                width="55%"
                 style={{
                     display: 'flex',
-                    margin: '40px auto',
-                    borderRadius: '10px',
+                    margin: '40px 1% 40px 10%',
+                    float: 'left',
                 }}
-                alt="Image of Outside of Apartment"
+                alt="Homepage Image"
+            />
+            <img
+                src={community2}
+                width="25%"
+                style={{
+                    display: 'flex',
+                    margin: '61px 10% 0px 0px',
+                }}
+                alt="Homepage Image"
+            />
+            <img
+                src={community3}
+                width="25%"
+                style={{
+                    display: 'flex',
+                    margin: '1% 10% 40px 0px',
+                }}
+                alt="Homepage Image"
             />
 
-            <h1> Our Neighborhood </h1>
-            <h3 className="homepageText">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-                enim ad minim veniam, quis nostrud exercitation ullamco laboris
-                nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor
-                in reprehenderit in voluptate velit esse cillum dolore eu fugiat
-                nulla pariatur. Excepteur sint occaecat cupidatat non proident,
-                sunt in culpa qui officia deserunt mollit anim id est laborum
-            </h3>
-            <h1>About Mystic</h1>
-            <h3 className="homepageText">
-                Mystic is a charming village on Connecticut's southeast
-                coastline. The city revolves around boating and is home to an
-                array of marinas and historic landmarks. Residents and visitors
-                alike enjoy visiting the family-friendly Mystic Seaport Museum.
-                This reimagined settlement on the Mystic River features a
-                19th-century village, historic chips, a museum, and more. The
-                central commercial district in Mystic is lined with local
-                restaurants and specialty shops like the Engine Room, a
-                rustic-chic eatery offering classic comfort food and craft
-                beers. Across the river you'll find even more dining options and
-                local shops. Residents flock to Williams Beach Park to enjoy the
-                seasonal benefits to this green space that offers swimming, a
-                playground, sports fields, and scenic picnic spots overlooking
-                the water.
-            </h3>
-            <h1>Highlights</h1>
-            <h3 className="homepageText">
-                <ul style={{ listStyle: 'square' }}>
-                    <li> Bowling </li>
-                    <li> Swimming </li>
-                    <li> Food </li>
-                </ul>
-            </h3>
+            <p className="text community-text">
+                With serene views, peaeful vibes, and plenty of nature, plenty
+                are happy to call this community their home! There is a variety
+                of fun activies to do and places to see around Mystic Village
+                Apartments.
+            </p>
+            <h1> Top Attractions Nearby</h1>
+            <div className="community-image-sections">
+                <div className="image-left">
+                    <div className="community-image-section">
+                        <img
+                            className="community-image"
+                            src={community4}
+                            width={'100%'}
+                        />
+                    </div>
+                    <h2> Mystic Aquarium</h2>
+                    <p className="text community-image-text">
+                        This aquarium is about a quick 6 minute drive from
+                        Mystic Village Apartments. Here you can see cute sea
+                        creatures such as beluga whales and colorful fish!
+                    </p>
+                </div>
+
+                <div className="image-middle">
+                    <div className="community-image-section">
+                        <img
+                            className="community-image"
+                            src={community5}
+                            width={'100%'}
+                        />
+                    </div>
+                    <h2> Mystic Seaport</h2>
+                    <p className="text community-image-text">
+                        The Mystic Seaport is a hot tourist spot! With its
+                        magnificent ships and beautiful museium, you'll be able
+                        to have fun and learn about the history of Mystic
+                        Seaport.
+                    </p>
+                </div>
+                <div className="image-right">
+                    <div className="community-image-section">
+                        <img
+                            className="community-image"
+                            src={community6}
+                            width={'100%'}
+                        />
+                    </div>
+                    <h2> B.F. Clyde's Cider Mill</h2>
+                    <p className="text community-image-text">
+                        This cider mill has tasty cider, apples, and donus for
+                        you to try! Fun fact: The last steam-powered cider mill
+                        in the United States is B.F. Clyde's Cider Mill!
+                    </p>
+                </div>
+            </div>
         </div>
     );
 };

@@ -1,17 +1,44 @@
 @use 'variables' as var;
-h1 {
-    margin-left: 5%;
+.homepageTitle {
+    margin-left: 10%;
     font-family: 'CostarBrownRegular', sans-serif;
     color: var.$navy;
 }
-.homepageText {
+.text {
     font-family: 'CostarBrownLight', sans-serif;
-    font-size: 28px;
-    margin-left: 5%;
-    margin-right: 5%;
+    font-size: 30px;
+    margin-left: 10%;
+    margin-right: 10%;
     color: var.$navy;
+    line-height: 2.2;
+}
+
+.homepageTextBottom {
+    margin-top: 5%;
 }
 
 .homepage {
     margin-bottom: 200px;
+}
+.homepage-leasing-open {
+    box-sizing: border-box;
+    display: flex;
+    width: 25%;
+    height: 9%;
+    border: 2px solid var.$navy;
+    border-radius: 6px;
+}
+
+h1 {
+    font-family: 'CostarBrownRegular', sans-serif;
+    color: var.$navy;
+    margin-left: 10%;
+    margin-right: 10%;
+}
+
+h2 {
+    font-family: 'CostarBrownRegular', sans-serif;
+    color: var.$navy;
+    margin: 20px auto;
+    text-align: center;
 }

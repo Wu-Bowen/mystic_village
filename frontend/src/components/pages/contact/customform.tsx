@@ -45,15 +45,9 @@ export const CustomForm = (): JSX.Element => {
                     placeholder="Mobile number"
                     {...register('Mobile number', {
                         required: true,
-                        minLength: {
-                            value: 10,
-                            message:
-                                'Phone number must be at least 10 digits long',
-                        },
-                        maxLength: 12,
                         pattern: {
-                            value: /^(\+\d{1,2}\s)?\(?\d{3}\)?[\s.-]?\d{3}[\s.-]?\d{4}$/,
-                            message: 'Please enter a valid Phone Number',
+                            value: /^\s*(?:\+?(\d{1,3}))?[-. (]*(\d{3})[-. )]*(\d{3})[-. ]*(\d{4})(?: *x(\d+))?\s*$/,
+                            message: 'Please Enter a Valid phone number',
                         },
                     })}
                 />
