@@ -5,6 +5,8 @@
 .teamContainer {
     height: fit-content;
     display: grid;
+    margin-left: 10%;
+    margin-right: 10%;
     grid-template-columns: 1fr 1fr 1fr;
     @media (max-width: 1000px) {
         grid-template-columns: none;

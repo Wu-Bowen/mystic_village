@@ -86,9 +86,22 @@ const bedroomImages: string[] = [
     bedroom7,
 ];
 
+interface details {
+    key: string;
+    value: string;
+}
+
 export const Apartments = (): JSX.Element => {
+    const studioDetails: details[] = [
+        { key: 'Residents', value: '1-2 People' },
+        { key: 'Bedrooms', value: '1' },
+        { key: 'Bathrooms', value: '1' },
+        { key: 'Size', value: '800 square ft' },
+        { key: 'Leasing Period', value: '2022 - 2023' },
+    ];
     const [currentOption, setCurrentOption] = useState('studio');
     const [images, setImages] = useState(studioImages);
+
     const studioClick = () => {
         setCurrentOption('studio');
     };
@@ -149,19 +162,19 @@ export const Apartments = (): JSX.Element => {
             <ImageCarousel images={images} />
             <div className={'apartment-details'}>
                 <div>
-                    <h1>Apartment Amenties</h1>
+                    <h1 className={'h1-no-margin'}>Apartment Amenties</h1>
                     <div className="amenity-section">
                         <div className="amenity-left">
                             <div className="amenity-icon">
                                 <Laundry />
                             </div>
-                            On-Site Laundry
+                            <p className="detail-text"> On-Site Laundry</p>
                         </div>
                         <div className="amenity-right">
                             <div className="amenity-icon">
                                 <LightBulb />
                             </div>
-                            Electricity
+                            <p className="detail-text">Electricity</p>
                         </div>
                     </div>
                     <div className="amenity-section">
@@ -169,20 +182,52 @@ export const Apartments = (): JSX.Element => {
                             <div className="amenity-icon">
                                 <Heat />
                             </div>
-                            Heating/Cooling
+                            <p className="detail-text">Heating/Cooling</p>
                         </div>
                         <div className="amenity-right">
                             <div className="amenity-icon">
                                 <Wifi />
                             </div>
-                            Wifi
+                            <p className="detail-text">Wifi</p>
                         </div>
                     </div>
                 </div>
                 <div>
                     <h1> Details</h1>
+                    <div className="detail-section">
+                        {currentOption === 'airbnb' ? (
+                            <>
+                                <p className="detail-text">
+                                    Each Airbnb will have its own details.
+                                </p>
+                                <p className="detail-text">
+                                    Go to{' '}
+                                    <a href="https://www.airbnb.com/wishlists/v/1095462513?s=67&unique_share_id=0617313d-c6a6-4891-b490-71e1883d652f">
+                                        Airbnb link
+                                    </a>{' '}
+                                    to see details
+                                </p>
+                            </>
+                        ) : (
+                            <>
+                                {studioDetails.map((detail) => {
+                                    return (
+                                        <div className="detail-item">
+                                            <p className="detail-text detail-text-bold">
+                                                {detail.key}
+                                            </p>
+                                            <p className="detail-text">
+                                                {detail.value}
+                                            </p>
+                                        </div>
+                                    );
+                                })}
+                            </>
+                        )}
+                    </div>
                 </div>
             </div>
+            <h1> Floor Plan</h1>
         </div>
     );
 };

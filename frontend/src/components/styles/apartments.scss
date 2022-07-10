@@ -8,15 +8,16 @@
 .apartment-details {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    margin-bottom: 150px;
+    margin-bottom: 100px;
+    margin-left: 10%;
 }
 .amenity-section {
     display: flex;
     padding-bottom: 25px;
 }
-.amenity-left {
-    margin-left: 10%;
-}
+// .amenity-left {
+//     margin-left: 10%;
+// }
 .amenity-right {
     margin-left: 30%;
 }
@@ -24,4 +25,21 @@
     width: 25px;
     display: inline-block;
     margin-right: 8px;
+}
+
+.detail-section {
+    margin-left: 10%;
+}
+
+.detail-item {
+    display: flex;
+    justify-content: space-between;
+}
+
+.detail-text {
+    width: 50%;
+    font-size: 18px;
+}
+.detail-text-bold {
+    font-weight: 800;
 }
