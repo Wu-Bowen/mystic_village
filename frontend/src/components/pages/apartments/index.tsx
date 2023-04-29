@@ -6,7 +6,6 @@ import {
     studio3,
     studio4,
     studio5,
-    studio6,
     studio7,
 } from './../../../assets/images/apartments/studio';
 import {
@@ -18,6 +17,12 @@ import {
     bedroom6,
     bedroom7,
 } from './../../../assets/images/apartments/bedroom';
+import {
+    airbnb1,
+    airbnb2,
+    airbnb3,
+    airbnb5,
+} from './../../../assets/images/apartments/airbnb';
 import Laundry from '../../../assets/icons/laundry';
 import LightBulb from '../../../assets/icons/lightbulb';
 import Heat from '../../../assets/icons/heat';
@@ -73,7 +78,6 @@ const studioImages: string[] = [
     studio3,
     studio4,
     studio5,
-    studio6,
     studio7,
 ];
 const bedroomImages: string[] = [
@@ -85,6 +89,8 @@ const bedroomImages: string[] = [
     bedroom6,
     bedroom7,
 ];
+
+const airbnbImages: string[] = [airbnb1, airbnb2, airbnb3, airbnb5];
 
 interface details {
     key: string;
@@ -114,6 +120,7 @@ export const Apartments = (): JSX.Element => {
 
     useEffect(() => {
         if (currentOption === 'airbnb') {
+            setImages(airbnbImages);
         } else if (currentOption === 'bedroom') {
             setImages(bedroomImages);
         } else {
@@ -198,14 +205,16 @@ export const Apartments = (): JSX.Element => {
                         {currentOption === 'airbnb' ? (
                             <>
                                 <p className="detail-text">
-                                    Each Airbnb will have its own details.
+                                    Each Airbnb will have its individual
+                                    decorations and furniture. The above images
+                                    is from our lovely Haley Studio
                                 </p>
                                 <p className="detail-text">
-                                    Go to{' '}
+                                    Go to our{' '}
                                     <a href="https://www.airbnb.com/wishlists/v/1095462513?s=67&unique_share_id=0617313d-c6a6-4891-b490-71e1883d652f">
                                         Airbnb link
                                     </a>{' '}
-                                    to see details
+                                    to see details of all our avaialable airbnbs
                                 </p>
                             </>
                         ) : (
@@ -227,7 +236,6 @@ export const Apartments = (): JSX.Element => {
                     </div>
                 </div>
             </div>
-            <h1> Floor Plan</h1>
         </div>
     );
 };

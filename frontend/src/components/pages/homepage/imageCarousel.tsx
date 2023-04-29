@@ -1,5 +1,4 @@
 import React, { ReactChild, useState } from 'react';
-import building from './../../../assets/images/building.jpg';
 import 'react-responsive-carousel/lib/styles/carousel.min.css';
 import '../../styles/carousel.scss';
 import { Carousel } from 'react-responsive-carousel';
@@ -65,7 +64,7 @@ export const ImageCarousel = ({ images }: ImageCarouselProps): JSX.Element => {
             {images.map((image, i) => {
                 return (
                     <div key={i}>
-                        <img src={image} height= {'800px'} />
+                        <img src={image} />
                     </div>
                 );
             })}
