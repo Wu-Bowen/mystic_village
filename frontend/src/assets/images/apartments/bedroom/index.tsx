@@ -6,4 +6,12 @@ import bedroom5 from './bedroom5.jpg';
 import bedroom6 from './bedroom6.jpg';
 import bedroom7 from './bedroom7.jpg';
 
-export { bedroom1, bedroom2, bedroom3, bedroom4, bedroom5, bedroom6, bedroom7 };
+export const bedroomImages: string[] = [
+    bedroom1,
+    bedroom2,
+    bedroom3,
+    bedroom4,
+    bedroom5,
+    bedroom6,
+    bedroom7,
+];

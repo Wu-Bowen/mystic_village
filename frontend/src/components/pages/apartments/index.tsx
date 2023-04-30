@@ -1,34 +1,14 @@
 import { IButtonStyles, PrimaryButton } from '@fluentui/react/lib/Button';
 import React, { useEffect, useState } from 'react';
-import {
-    studio1,
-    studio2,
-    studio3,
-    studio4,
-    studio5,
-    studio7,
-} from './../../../assets/images/apartments/studio';
-import {
-    bedroom1,
-    bedroom2,
-    bedroom3,
-    bedroom4,
-    bedroom5,
-    bedroom6,
-    bedroom7,
-} from './../../../assets/images/apartments/bedroom';
-import {
-    airbnb1,
-    airbnb2,
-    airbnb3,
-    airbnb5,
-} from './../../../assets/images/apartments/airbnb';
+import { bedroomImages } from './../../../assets/images/apartments/bedroom';
 import Laundry from '../../../assets/icons/laundry';
 import LightBulb from '../../../assets/icons/lightbulb';
 import Heat from '../../../assets/icons/heat';
 import Wifi from '../../../assets/icons/wifi';
 import '../../styles/apartments.scss';
 import { ImageCarousel } from '../homepage/imageCarousel';
+import { airbnbImages } from '../../../assets/images/apartments/airbnb';
+import { studioImages } from '../../../assets/images/apartments/studio';
 
 const inactiveButton: IButtonStyles = {
     root: {
@@ -72,25 +52,6 @@ const activeButton: IButtonStyles = {
     },
 };
 
-const studioImages: string[] = [
-    studio1,
-    studio2,
-    studio3,
-    studio4,
-    studio5,
-    studio7,
-];
-const bedroomImages: string[] = [
-    bedroom1,
-    bedroom2,
-    bedroom3,
-    bedroom4,
-    bedroom5,
-    bedroom6,
-    bedroom7,
-];
-
-const airbnbImages: string[] = [airbnb1, airbnb2, airbnb3, airbnb5];
 
 interface details {
     key: string;

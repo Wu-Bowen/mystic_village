@@ -1,5 +1,5 @@
 import React from 'react';
-import homepage1 from './../../../assets/images/homepage/homepage1.png';
+import homepage1 from './../../../assets/images/homepage/homepage1.jpg';
 import homepage2 from './../../../assets/images/homepage/homepage2.png';
 import homepage3 from './../../../assets/images/homepage/homepage3.png';
 import '../../styles/homepage.scss';
