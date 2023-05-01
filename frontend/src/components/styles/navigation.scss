@@ -19,3 +19,22 @@
     width: 100%;
     border-bottom: 2px solid var.$light-grey;
 }
+
+.navTopMobile {
+    display: flex;
+    justify-content: space-between;
+    height: 60px;
+    background-color: var.$light-grey;
+    position: fixed;
+    overflow: hidden;
+    top: 0;
+    width: 100%;
+}
+.navTopMobileLeft {
+    display: flex;
+}
+
+.navTopMobile-margin {
+    margin-top: 80px;
+    width: 100%;
+}
