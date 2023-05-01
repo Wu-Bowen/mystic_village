@@ -13,22 +13,28 @@
     align-items: center;
 }
 .footer-content-title {
-    margin-top: 40px;
+    margin-top: 20px;
     font-size: 20px;
 }
 .footer-content-inner-container {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     justify-items: center;
-    width: 40%;
-    margin-top: 40px;
-    @media (max-width: 1600px) {
-        width: 60%;
+    width: 80%;
+    margin-top: 25px;
+    .footer-content-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
     }
     @media (max-width: 1000px) {
+        width: 100%;
+    }
+    @media (max-width: 600px) {
         grid-template-columns: none;
     }
     .footer-content {
+        padding-bottom: 10px;
         @media (max-width: 1000px) {
             padding: 10px;
         }
