@@ -9,6 +9,10 @@ import '../../styles/apartments.scss';
 import { ImageCarousel } from '../homepage/imageCarousel';
 import { airbnbImages } from '../../../assets/images/apartments/airbnb';
 import { studioImages } from '../../../assets/images/apartments/studio';
+import {
+    deviceScreenType,
+    getDeviceScreenType,
+} from '../../../utils/functions';
 
 const inactiveButton: IButtonStyles = {
     root: {
@@ -52,19 +56,30 @@ const activeButton: IButtonStyles = {
     },
 };
 
+const studioDetails: details[] = [
+    { key: 'Residents', value: '1-2 People' },
+    { key: 'Bedrooms', value: '1' },
+    { key: 'Bathrooms', value: '1' },
+    { key: 'Size', value: '800 square ft' },
+    { key: 'Leasing Period', value: '2022 - 2023' },
+];
 interface details {
     key: string;
     value: string;
 }
 
 export const Apartments = (): JSX.Element => {
-    const studioDetails: details[] = [
-        { key: 'Residents', value: '1-2 People' },
-        { key: 'Bedrooms', value: '1' },
-        { key: 'Bathrooms', value: '1' },
-        { key: 'Size', value: '800 square ft' },
-        { key: 'Leasing Period', value: '2022 - 2023' },
-    ];
+    const [screenType, setScreenType] = useState(getDeviceScreenType());
+
+    useEffect(() => {
+        function handleResize() {
+            setScreenType(getDeviceScreenType());
+        }
+
+        window.addEventListener('resize', handleResize);
+        return () => window.removeEventListener('resize', handleResize);
+    }, []);
+
     const [currentOption, setCurrentOption] = useState('studio');
     const [images, setImages] = useState(studioImages);
 
@@ -126,7 +141,10 @@ export const Apartments = (): JSX.Element => {
                 />
             </div>
             <h1> Gallery </h1>
-            <ImageCarousel images={images} />
+            <ImageCarousel
+                images={images}
+                isMobile={screenType === deviceScreenType.mobile}
+            />
             <div className={'apartment-details'}>
                 <div>
                     <h1 className={'h1-no-margin'}>Apartment Amenties</h1>

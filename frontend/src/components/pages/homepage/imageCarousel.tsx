@@ -1,4 +1,4 @@
-import React, { ReactChild, useState } from 'react';
+import React, { ReactChild, useEffect, useState } from 'react';
 import 'react-responsive-carousel/lib/styles/carousel.min.css';
 import '../../styles/carousel.scss';
 import { Carousel } from 'react-responsive-carousel';
@@ -12,6 +12,7 @@ interface newElement {
 }
 export interface ImageCarouselProps {
     images: string[];
+    isMobile: boolean;
 }
 
 const circleIcon: IIconProps = { iconName: 'CircleFill' };
@@ -29,8 +30,12 @@ const buttonSelectedStyles: IButtonStyles = {
     rootPressed: { backgroundColor: 'transparent' },
 };
 
-export const ImageCarousel = ({ images }: ImageCarouselProps): JSX.Element => {
+export const ImageCarousel = ({
+    images,
+    isMobile,
+}: ImageCarouselProps): JSX.Element => {
     const [selectedDot, setSelectedDot] = useState(0);
+
     const customRenderThumb = (children: any): ReactChild[] => {
         return children.map((item: newElement) => {
             return (
@@ -53,7 +58,7 @@ export const ImageCarousel = ({ images }: ImageCarouselProps): JSX.Element => {
     return (
         <Carousel
             showIndicators={false}
-            width="55%"
+            width={isMobile ? '90%' : '55%'}
             thumbWidth={30}
             interval={10000}
             autoPlay

@@ -1,5 +1,9 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useForm } from 'react-hook-form';
+import {
+    deviceScreenType,
+    getDeviceScreenType,
+} from '../../../utils/functions';
 
 type FormData = {
     firstName: string;
@@ -16,9 +20,27 @@ export const CustomForm = (): JSX.Element => {
         formState: { errors },
     } = useForm();
     const onSubmit = (data: FormData) => console.log(data);
-    console.log(errors);
+
+    const [screenType, setScreenType] = useState(getDeviceScreenType());
+
+    useEffect(() => {
+        function handleResize() {
+            setScreenType(getDeviceScreenType());
+        }
+
+        window.addEventListener('resize', handleResize);
+        return () => window.removeEventListener('resize', handleResize);
+    }, []);
+
     return (
-        <form onSubmit={handleSubmit(onSubmit)}>
+        <form
+            onSubmit={handleSubmit(onSubmit)}
+            style={
+                screenType === deviceScreenType.mobile
+                    ? { maxWidth: '90%' }
+                    : {}
+            }
+        >
             <div className="formBunch">
                 <input
                     {...register('firstName')}

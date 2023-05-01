@@ -1,15 +1,25 @@
 .apartment-buttons {
     margin: 0 10% 50px 10%;
+    @media screen and (max-width: 600px) {
+        display: grid;
+        margin: 0;
+    }
 }
 .button-middle {
     margin-right: 5%;
     margin-left: 5%;
+    @media screen and (max-width: 600px) {
+        margin: 0;
+    }
 }
 .apartment-details {
     display: grid;
     grid-template-columns: 1fr 1fr;
     margin-bottom: 100px;
     margin-left: 10%;
+    @media screen and (max-width: 600px) {
+        display: block;
+    }
 }
 .amenity-section {
     display: flex;
@@ -29,6 +39,9 @@
 
 .detail-section {
     margin-left: 10%;
+    @media screen and (max-width: 600px) {
+        margin-left: 0;
+    }
 }
 
 .detail-item {
