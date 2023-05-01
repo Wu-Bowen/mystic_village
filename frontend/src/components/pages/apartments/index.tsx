@@ -52,7 +52,6 @@ const activeButton: IButtonStyles = {
     },
 };
 
-
 interface details {
     key: string;
     value: string;
@@ -180,9 +179,9 @@ export const Apartments = (): JSX.Element => {
                             </>
                         ) : (
                             <>
-                                {studioDetails.map((detail) => {
+                                {studioDetails.map((detail, i) => {
                                     return (
-                                        <div className="detail-item">
+                                        <div className="detail-item" key={i}>
                                             <p className="detail-text detail-text-bold">
                                                 {detail.key}
                                             </p>
