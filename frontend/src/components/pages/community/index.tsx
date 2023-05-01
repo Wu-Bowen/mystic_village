@@ -39,7 +39,7 @@ export const Community = (): JSX.Element => {
             />
             <img
                 src={community2}
-                width={screenType === deviceScreenType.mobile ? '50%' : '55%'}
+                width={screenType === deviceScreenType.mobile ? '50%' : '25%'}
                 style={{
                     display:
                         screenType === deviceScreenType.mobile
@@ -56,7 +56,7 @@ export const Community = (): JSX.Element => {
             />
             <img
                 src={community3}
-                width={screenType === deviceScreenType.mobile ? '50%' : '55%'}
+                width={screenType === deviceScreenType.mobile ? '50%' : '25%'}
                 style={{
                     display:
                         screenType === deviceScreenType.mobile

@@ -36,7 +36,7 @@ export const Homepage = (): JSX.Element => {
             />
             <img
                 src={homepage2}
-                width={screenType === deviceScreenType.mobile ? '50%' : '55%'}
+                width={screenType === deviceScreenType.mobile ? '50%' : '25%'}
                 style={{
                     display:
                         screenType === deviceScreenType.mobile
@@ -53,7 +53,7 @@ export const Homepage = (): JSX.Element => {
             />
             <img
                 src={homepage3}
-                width={screenType === deviceScreenType.mobile ? '50%' : '55%'}
+                width={screenType === deviceScreenType.mobile ? '50%' : '25%'}
                 style={{
                     display:
                         screenType === deviceScreenType.mobile
