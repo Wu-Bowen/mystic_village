@@ -178,7 +178,15 @@ export const Apartments = (): JSX.Element => {
                     </div>
                 </div>
                 <div>
-                    <h1> Details</h1>
+                    <h1
+                        className={
+                            screenType === deviceScreenType.mobile
+                                ? 'h1-no-margin'
+                                : ''
+                        }
+                    >
+                        Details
+                    </h1>
                     <div className="detail-section">
                         {currentOption === 'airbnb' ? (
                             <>
