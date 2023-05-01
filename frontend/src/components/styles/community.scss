@@ -17,6 +17,9 @@
     margin: 0px 10%;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
+    @media screen and (max-width: 600px) {
+        grid-template-columns: 1fr;
+    }
 }
 .image-left {
     margin-right: 10%;

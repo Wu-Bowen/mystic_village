@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import '../../styles/community.scss';
 import community1 from './../../../assets/images/community/community1.png';
 import community2 from './../../../assets/images/community/community2.png';
@@ -6,36 +6,68 @@ import community3 from './../../../assets/images/community/community3.png';
 import community4 from './../../../assets/images/community/community4.png';
 import community5 from './../../../assets/images/community/community5.png';
 import community6 from './../../../assets/images/community/community6.png';
+import {
+    deviceScreenType,
+    getDeviceScreenType,
+} from '../../../utils/functions';
 export const Community = (): JSX.Element => {
+    const [screenType, setScreenType] = useState(getDeviceScreenType());
+    useEffect(() => {
+        function handleResize() {
+            setScreenType(getDeviceScreenType());
+        }
+
+        window.addEventListener('resize', handleResize);
+        return () => window.removeEventListener('resize', handleResize);
+    }, []);
     return (
         <div className="community">
             <h1> Our Community </h1>
 
             <img
                 src={community1}
-                width="55%"
+                width={screenType === deviceScreenType.mobile ? '100%' : '55%'}
                 style={{
                     display: 'flex',
-                    margin: '40px 1% 40px 10%',
+                    margin:
+                        screenType === deviceScreenType.mobile
+                            ? 'auto'
+                            : '40px 1% 40px 10%',
                     float: 'left',
                 }}
                 alt="Homepage Image"
             />
             <img
                 src={community2}
-                width="25%"
+                width={screenType === deviceScreenType.mobile ? '50%' : '55%'}
                 style={{
-                    display: 'flex',
-                    margin: '61px 10% 0px 0px',
+                    display:
+                        screenType === deviceScreenType.mobile
+                            ? 'inline-block'
+                            : 'flex',
+                    margin:
+                        screenType === deviceScreenType.mobile
+                            ? '0'
+                            : '61px 10% 0px 0px',
+                    paddingTop:
+                        screenType === deviceScreenType.mobile ? '10px' : '0px',
                 }}
                 alt="Homepage Image"
             />
             <img
                 src={community3}
-                width="25%"
+                width={screenType === deviceScreenType.mobile ? '50%' : '55%'}
                 style={{
-                    display: 'flex',
-                    margin: '1% 10% 40px 0px',
+                    display:
+                        screenType === deviceScreenType.mobile
+                            ? 'inline-block'
+                            : 'flex',
+                    margin:
+                        screenType === deviceScreenType.mobile
+                            ? '0'
+                            : '1% 10% 40px 0px',
+                    paddingTop:
+                        screenType === deviceScreenType.mobile ? '10px' : '0px',
                 }}
                 alt="Homepage Image"
             />

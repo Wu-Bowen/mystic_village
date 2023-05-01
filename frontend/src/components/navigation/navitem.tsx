@@ -8,13 +8,6 @@ import { useNavigate } from 'react-router-dom';
 import { DirectionalHint, TooltipHost } from '@fluentui/react';
 import { useId } from '@fluentui/react-hooks';
 
-interface NavItemProps {
-    name: string;
-    buttonType?: string;
-    location?: string;
-    disabled?: boolean;
-}
-
 const portalButtonStyles: IButtonStyles = {
     root: {
         margin: '10px',
@@ -40,13 +33,32 @@ const menuButtonStyles: IButtonStyles = {
     },
 };
 
+const mobileMenuButtonStyles: IButtonStyles = {
+    root: {
+        fontSize: '22px',
+        marginTop: '50px',
+        color: '#f3d89e',
+    },
+};
+
+interface NavItemProps {
+    name: string;
+    isMobile?: boolean;
+    buttonType?: string;
+    location?: string;
+    disabled?: boolean;
+    onClickCallback?: () => void;
+}
+
 const calloutProps = { gapSpace: 0 };
 
 export const NavItem = ({
+    isMobile,
     name,
     buttonType,
     location,
     disabled,
+    onClickCallback,
 }: NavItemProps): JSX.Element => {
     const navigate = useNavigate();
     const tooltipId = useId('tooltip');
@@ -65,7 +77,10 @@ export const NavItem = ({
                 <PrimaryButton
                     styles={portalButtonStyles}
                     text={name}
-                    onClick={() => linkClicked(location)}
+                    onClick={() => {
+                        linkClicked(location);
+                        onClickCallback?.();
+                    }}
                     allowDisabledFocus
                     disabled={disabled}
                 />
@@ -74,7 +89,10 @@ export const NavItem = ({
             <PrimaryButton
                 styles={portalButtonStyles}
                 text={name}
-                onClick={() => linkClicked(location)}
+                onClick={() => {
+                    linkClicked(location);
+                    onClickCallback?.();
+                }}
                 allowDisabledFocus
                 disabled={disabled}
             />
@@ -82,9 +100,12 @@ export const NavItem = ({
     }
     return (
         <ActionButton
-            styles={menuButtonStyles}
+            styles={isMobile ? mobileMenuButtonStyles : menuButtonStyles}
             text={name}
-            onClick={() => linkClicked(location)}
+            onClick={() => {
+                linkClicked(location);
+                onClickCallback?.();
+            }}
             allowDisabledFocus
             disabled={false}
         />

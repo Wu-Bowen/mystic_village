@@ -7,6 +7,7 @@ import '../styles/navigation.scss';
 import { deviceScreenType, getDeviceScreenType } from '../../utils/functions';
 import favicon from './../../assets/images/favicon.png';
 import { IButtonStyles, IconButton } from '@fluentui/react';
+import { NavItem } from './navitem';
 
 const navButtonStyles: IButtonStyles = {
     root: {
@@ -26,6 +27,11 @@ const navButtonStyles: IButtonStyles = {
 
 export const Navbar = (): JSX.Element => {
     const [screenType, setScreenType] = useState(getDeviceScreenType());
+    const [isNavOpen, setIsNavOpen] = useState(false);
+
+    useEffect(() => {
+        document.body.style.overflow = isNavOpen ? 'hidden' : 'unset';
+    }, [isNavOpen]);
 
     useEffect(() => {
         function handleResize() {
@@ -35,6 +41,10 @@ export const Navbar = (): JSX.Element => {
         window.addEventListener('resize', handleResize);
         return () => window.removeEventListener('resize', handleResize);
     }, []);
+
+    const closeNav = () => {
+        setIsNavOpen(false);
+    };
 
     return (
         <div className="nav">
@@ -54,10 +64,18 @@ export const Navbar = (): JSX.Element => {
                             styles={navButtonStyles}
                             iconProps={{
                                 iconName: 'GlobalNavButton',
-                                styles: { root: { fontSize: '30px' } },
+                                styles: {
+                                    root: {
+                                        fontSize: '30px',
+                                        color: '#1d2959',
+                                    },
+                                },
                             }}
                             width={48}
                             height={48}
+                            onClick={() => {
+                                setIsNavOpen(!isNavOpen);
+                            }}
                         />
                     </div>
                     <div className="navMobile-menu"> </div>
@@ -80,6 +98,35 @@ export const Navbar = (): JSX.Element => {
                     <NavMenu />
                 </div>
             )}
+            {isNavOpen ? (
+                <div className="nav-mobile-menu">
+                    <NavItem
+                        name="Home"
+                        location="/"
+                        isMobile
+                        onClickCallback={closeNav}
+                    />
+                    <NavItem
+                        name="Our Community"
+                        location="community"
+                        isMobile
+                        onClickCallback={closeNav}
+                    />
+                    <NavItem
+                        name="Available Rentals"
+                        location="apartments"
+                        isMobile
+                        onClickCallback={closeNav}
+                    />
+                    {/* <NavItem name="Schedule Tour" location="tour" /> */}
+                    <NavItem
+                        name="Contact Us"
+                        location="contact"
+                        isMobile
+                        onClickCallback={closeNav}
+                    />
+                </div>
+            ) : null}
         </div>
     );
 };
