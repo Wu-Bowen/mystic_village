@@ -53,11 +53,13 @@ export const Navbar = (): JSX.Element => {
                 <>
                     <div className="navTopMobile">
                         <div className="navTopMobileLeft">
-                            <img
-                                src={favicon}
-                                width={48}
-                                style={{ padding: '5px' }}
-                            />
+                            <Link to="./">
+                                <img
+                                    src={favicon}
+                                    width={48}
+                                    style={{ padding: '5px' }}
+                                />
+                            </Link>
                             <h4> Mystic Village Apartments</h4>
                         </div>
                         <IconButton
