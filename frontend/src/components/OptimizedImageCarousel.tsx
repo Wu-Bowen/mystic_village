@@ -64,34 +64,15 @@ export const OptimizedImageCarousel = ({
             showArrows={!isMobile}
         >
             {images.map((image, i) => {
-                // Only render LazyImage for current and adjacent images
-                const shouldLazyLoad = Math.abs(i - currentIndex) <= 1;
-                
                 return (
                     <div key={i} className="carousel-slide">
-                        {shouldLazyLoad ? (
-                            <LazyImage
-                                src={image}
-                                alt={`Apartment image ${i + 1}`}
-                                className="carousel-image"
-                                sizes={isMobile ? '90vw' : '55vw'}
-                            />
-                        ) : (
-                            <div 
-                                className="carousel-placeholder"
-                                style={{
-                                    width: '100%',
-                                    height: '400px',
-                                    backgroundColor: '#f0f0f0',
-                                    display: 'flex',
-                                    alignItems: 'center',
-                                    justifyContent: 'center',
-                                    color: '#888'
-                                }}
-                            >
-                                Loading...
-                            </div>
-                        )}
+                        <img
+                            src={image}
+                            alt={`Apartment image ${i + 1}`}
+                            className="carousel-image"
+                            style={{ width: '100%', height: 'auto' }}
+                            loading="lazy"
+                        />
                     </div>
                 );
             })}

@@ -40,7 +40,7 @@ module.exports = {
                     options: {
                         limit: 8192, // Only inline images smaller than 8KB
                         name: 'images/[name].[ext]',
-                        publicPath: '/src/assets/',
+                        publicPath: '/',
                     },
                 },
             },

@@ -1,5 +1,5 @@
-import { IButtonStyles, PrimaryButton } from '@fluentui/react/lib/Button';
 import React, { useEffect, useState } from 'react';
+import { ModernButton } from '../../ModernButton';
 import { bedroomImages } from './../../../assets/images/apartments/bedroom';
 import Laundry from '../../../assets/icons/laundry';
 import LightBulb from '../../../assets/icons/lightbulb';
@@ -14,47 +14,7 @@ import {
     getDeviceScreenType,
 } from '../../../utils/functions';
 
-const inactiveButton: IButtonStyles = {
-    root: {
-        backgroundColor: '#adc6ed',
-        borderColor: '#1d2959',
-        borderRadius: '8px',
-        color: 'black',
-        fontSize: '18px',
-        height: '50px',
-    },
-    rootHovered: {
-        backgroundColor: '#213069',
-        borderColor: '#1d2959',
-        color: '#dfe6f2',
-    },
-    rootPressed: {
-        backgroundColor: '#213069',
-        borderColor: '#1d2959',
-        color: '#dfe6f2',
-    },
-};
-
-const activeButton: IButtonStyles = {
-    root: {
-        backgroundColor: '#1d2959',
-        borderColor: '#1d2959',
-        borderRadius: '8px',
-        color: '#dfe6f2',
-        fontSize: '18px',
-        height: '50px',
-    },
-    rootHovered: {
-        backgroundColor: '#1d2959',
-        borderColor: '#1d2959',
-        color: '#dfe6f2',
-    },
-    rootPressed: {
-        backgroundColor: '#1d2959',
-        borderColor: '#1d2959',
-        color: '#dfe6f2',
-    },
-};
+// Button styles are now handled by ModernButton component
 
 const studioDetails: details[] = [
     { key: 'Residents', value: '1-2 People' },
@@ -106,39 +66,27 @@ export const Apartments = (): JSX.Element => {
         <div className="Apartments">
             <h1> Available Rentals </h1>
             <div className="apartment-buttons">
-                <PrimaryButton
+                <ModernButton
                     className="button-left"
-                    styles={
-                        currentOption === 'studio'
-                            ? activeButton
-                            : inactiveButton
-                    }
-                    text="Studio"
+                    isActive={currentOption === 'studio'}
                     onClick={() => studioClick()}
-                    allowDisabledFocus
-                />
-                <PrimaryButton
+                >
+                    Studio
+                </ModernButton>
+                <ModernButton
                     className="button-middle"
-                    styles={
-                        currentOption === 'bedroom'
-                            ? activeButton
-                            : inactiveButton
-                    }
-                    text="1 Bedroom"
+                    isActive={currentOption === 'bedroom'}
                     onClick={() => bedroomClick()}
-                    allowDisabledFocus
-                />
-                <PrimaryButton
+                >
+                    1 Bedroom
+                </ModernButton>
+                <ModernButton
                     className="button-right"
-                    styles={
-                        currentOption === 'airbnb'
-                            ? activeButton
-                            : inactiveButton
-                    }
-                    text="Airbnb"
+                    isActive={currentOption === 'airbnb'}
                     onClick={() => airbnbClick()}
-                    allowDisabledFocus
-                />
+                >
+                    Airbnb
+                </ModernButton>
             </div>
             <h1> Gallery </h1>
             <OptimizedImageCarousel

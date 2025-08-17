@@ -1,25 +1,25 @@
 import React, { useEffect, useState } from 'react';
 import '../styles/footer.scss';
-import { IIconStyles, Icon } from '@fluentui/react/lib/Icon';
+// import { IIconStyles, Icon } from '@fluentui/react/lib/Icon'; // Temporarily disabled for React 18 migration
 import { getDeviceScreenType } from '../../utils/functions';
 import { deviceScreenType } from '../../utils/functions';
 
-const iconStyles: IIconStyles = {
-    root: {
-        paddingBottom: '10px',
-    },
-};
+// const iconStyles: IIconStyles = { // Temporarily disabled for React 18 migration
+//     root: {
+//         paddingBottom: '10px',
+//     },
+// };
 
 const PhoneIcon = (): JSX.Element => {
-    return <Icon iconName="Phone" styles={iconStyles} />;
+    return <span style={{paddingBottom: '10px'}}>📞</span>; // Temporary replacement
 };
 
 const MailIcon = (): JSX.Element => {
-    return <Icon iconName="Mail" styles={iconStyles} />;
+    return <span style={{paddingBottom: '10px'}}>✉️</span>; // Temporary replacement
 };
 
 const MapIcon = (): JSX.Element => {
-    return <Icon iconName="MapPin" styles={iconStyles} />;
+    return <span style={{paddingBottom: '10px'}}>📍</span>; // Temporary replacement
 };
 
 export const Footer = (): JSX.Element => {

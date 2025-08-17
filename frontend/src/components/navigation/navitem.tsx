@@ -1,45 +1,8 @@
 import React from 'react';
-import {
-    PrimaryButton,
-    ActionButton,
-    IButtonStyles,
-} from '@fluentui/react/lib/Button';
 import { useNavigate } from 'react-router-dom';
-import { DirectionalHint, TooltipHost } from '@fluentui/react';
-import { useId } from '@fluentui/react-hooks';
+import { ModernButton } from '../ModernButton';
 
-const portalButtonStyles: IButtonStyles = {
-    root: {
-        margin: '10px',
-        width: '175px',
-        backgroundColor: '#1d2959',
-        borderColor: '#1d2959',
-        borderRadius: '8px',
-        color: '#f3d89e',
-        fontSize: '18px',
-        height: '50px',
-    },
-    rootHovered: {
-        backgroundColor: '#28397d',
-        borderColor: '#28397d',
-        color: '#f3d89e',
-    },
-};
-
-const menuButtonStyles: IButtonStyles = {
-    root: {
-        margin: '0 4vw 40px 4vw',
-        fontSize: '18px',
-    },
-};
-
-const mobileMenuButtonStyles: IButtonStyles = {
-    root: {
-        fontSize: '22px',
-        marginTop: '50px',
-        color: '#f3d89e',
-    },
-};
+// FluentUI styles removed - using ModernButton component instead
 
 interface NavItemProps {
     name: string;
@@ -50,7 +13,7 @@ interface NavItemProps {
     onClickCallback?: () => void;
 }
 
-const calloutProps = { gapSpace: 0 };
+// Removed calloutProps for FluentUI
 
 export const NavItem = ({
     isMobile,
@@ -61,53 +24,56 @@ export const NavItem = ({
     onClickCallback,
 }: NavItemProps): JSX.Element => {
     const navigate = useNavigate();
-    const tooltipId = useId('tooltip');
+    // Removed useId hook for FluentUI
 
     const linkClicked = (location: string): void => {
         navigate(location);
     };
     if (buttonType === 'portalButton') {
         return disabled ? (
-            <TooltipHost
-                content="Currently Under Development"
-                id={tooltipId}
-                calloutProps={calloutProps}
-                directionalHint={DirectionalHint.leftCenter}
-            >
-                <PrimaryButton
-                    styles={portalButtonStyles}
-                    text={name}
+            <div title="Currently Under Development" style={{display: 'inline-block'}}>
+                <ModernButton
                     onClick={() => {
                         linkClicked(location);
                         onClickCallback?.();
                     }}
-                    allowDisabledFocus
                     disabled={disabled}
-                />
-            </TooltipHost>
+                    className="portal-button"
+                >
+                    {name}
+                </ModernButton>
+            </div>
         ) : (
-            <PrimaryButton
-                styles={portalButtonStyles}
-                text={name}
+            <ModernButton
                 onClick={() => {
                     linkClicked(location);
                     onClickCallback?.();
                 }}
-                allowDisabledFocus
+                className="portal-button"
                 disabled={disabled}
-            />
+            >
+                {name}
+            </ModernButton>
         );
     }
     return (
-        <ActionButton
-            styles={isMobile ? mobileMenuButtonStyles : menuButtonStyles}
-            text={name}
+        <button
+            style={{
+                fontSize: isMobile ? '22px' : '18px',
+                margin: isMobile ? '50px 0 40px 0' : '0 4vw 40px 4vw',
+                color: isMobile ? '#f3d89e' : 'inherit',
+                background: 'transparent',
+                border: 'none',
+                cursor: 'pointer',
+                padding: '10px'
+            }}
             onClick={() => {
                 linkClicked(location);
                 onClickCallback?.();
             }}
-            allowDisabledFocus
             disabled={false}
-        />
+        >
+            {name}
+        </button>
     );
 };

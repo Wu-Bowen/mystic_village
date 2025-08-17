@@ -6,24 +6,25 @@ import { Link } from 'react-router-dom';
 import '../styles/navigation.scss';
 import { deviceScreenType, getDeviceScreenType } from '../../utils/functions';
 import favicon from './../../assets/images/favicon.png';
-import { IButtonStyles, IconButton } from '@fluentui/react';
+// import { IButtonStyles, IconButton } from '@fluentui/react'; // Temporarily disabled for React 18 migration
 import { NavItem } from './navitem';
 
-const navButtonStyles: IButtonStyles = {
-    root: {
-        margin: '10px',
-        backgroundColor: 'transparent',
-        '&:hover': {
-            backgroundColor: 'transparent',
-        },
-        ':active': {
-            backgroundColor: 'transparent',
-        },
-        ':focus': {
-            backgroundColor: 'transparent',
-        },
-    },
-};
+// Navigation button styles temporarily disabled for React 18 migration
+// const navButtonStyles: IButtonStyles = {
+//     root: {
+//         margin: '10px',
+//         backgroundColor: 'transparent',
+//         '&:hover': {
+//             backgroundColor: 'transparent',
+//         },
+//         ':active': {
+//             backgroundColor: 'transparent',
+//         },
+//         ':focus': {
+//             backgroundColor: 'transparent',
+//         },
+//     },
+// };
 
 export const Navbar = (): JSX.Element => {
     const [screenType, setScreenType] = useState(getDeviceScreenType());
@@ -62,23 +63,14 @@ export const Navbar = (): JSX.Element => {
                             </Link>
                             <h4> Mystic Village Apartments</h4>
                         </div>
-                        <IconButton
-                            styles={navButtonStyles}
-                            iconProps={{
-                                iconName: 'GlobalNavButton',
-                                styles: {
-                                    root: {
-                                        fontSize: '30px',
-                                        color: '#1d2959',
-                                    },
-                                },
-                            }}
-                            width={48}
-                            height={48}
+                        <button
+                            style={{margin: '10px', backgroundColor: 'transparent', border: 'none', fontSize: '30px', color: '#1d2959', cursor: 'pointer'}}
                             onClick={() => {
                                 setIsNavOpen(!isNavOpen);
                             }}
-                        />
+                        >
+                            ☰
+                        </button>
                     </div>
                     <div className="navMobile-menu"> </div>
                     <div className="navTopMobile-margin"> </div>
