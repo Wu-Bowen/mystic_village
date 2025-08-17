@@ -6,7 +6,7 @@ import LightBulb from '../../../assets/icons/lightbulb';
 import Heat from '../../../assets/icons/heat';
 import Wifi from '../../../assets/icons/wifi';
 import '../../styles/apartments.scss';
-import { ImageCarousel } from '../homepage/imageCarousel';
+import { OptimizedImageCarousel } from '../../OptimizedImageCarousel';
 import { airbnbImages } from '../../../assets/images/apartments/airbnb';
 import { studioImages } from '../../../assets/images/apartments/studio';
 import {
@@ -141,7 +141,7 @@ export const Apartments = (): JSX.Element => {
                 />
             </div>
             <h1> Gallery </h1>
-            <ImageCarousel
+            <OptimizedImageCarousel
                 images={images}
                 isMobile={screenType === deviceScreenType.mobile}
             />

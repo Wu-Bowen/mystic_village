@@ -13,6 +13,12 @@ module.exports = {
     },
     devServer: {
         historyApiFallback: true,
+        static: [
+            {
+                directory: path.join(__dirname, 'src/assets'),
+                publicPath: '/src/assets',
+            }
+        ],
     },
     devtool: 'eval-source-map',
     target: 'web',
@@ -28,9 +34,14 @@ module.exports = {
                 use: ['style-loader', 'css-loader', 'sass-loader'],
             },
             {
-                test: /\.(jpg|png)$/,
+                test: /\.(jpg|png|webp)$/,
                 use: {
                     loader: 'url-loader',
+                    options: {
+                        limit: 8192, // Only inline images smaller than 8KB
+                        name: 'images/[name].[ext]',
+                        publicPath: '/src/assets/',
+                    },
                 },
             },
             {

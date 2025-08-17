@@ -5,7 +5,8 @@ import { Carousel } from 'react-responsive-carousel';
 import { IIconProps, initializeIcons } from '@fluentui/react';
 import { IconButton, IButtonStyles } from '@fluentui/react/lib/Button';
 
-initializeIcons();
+// Initialize icons with a working CDN to avoid CORS issues
+initializeIcons('https://static2.sharepointonline.com/files/fabric/assets/', { disableWarnings: true });
 
 interface newElement {
     key?: number;
