@@ -5,7 +5,7 @@
     "main": "index.tsx",
     "scripts": {
         "test": "echo \"Error: no test specified\" && exit 1",
-        "build": "webpack --config webpack.config.js && node scripts/copy-optimized-images.js",
+        "build": "webpack --config webpack.config.js",
         "start": "webpack-dev-server --config ./webpack.config.js",
         "optimize-images": "node scripts/optimize-images-simple.js",
         "test-performance": "node scripts/test-performance.js"
@@ -30,6 +30,7 @@
         "react-lazyload": "^3.2.1",
         "react-responsive-carousel": "^3.2.22",
         "react-router-dom": "^7.8.1",
+        "sharp": "^0.34.3",
         "url-loader": "^4.1.1"
     },
     "devDependencies": {
@@ -46,7 +47,6 @@
         "node-sass": "^7.0.1",
         "sass": "^1.49.7",
         "sass-loader": "^12.4.0",
-        "sharp": "^0.34.3",
         "style-loader": "^3.3.1",
         "ts-loader": "^6.2.1",
         "typescript": "^5.9.2",
