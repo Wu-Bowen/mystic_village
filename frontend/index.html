@@ -9,6 +9,15 @@
         <title>Mystic Village Apartments</title>
     </head>
     <body style="margin: 0">
+        <!-- Hidden form for Netlify Forms detection -->
+        <form name="contact" netlify netlify-honeypot="bot-field" hidden>
+            <input type="text" name="firstName" />
+            <input type="text" name="lastName" />
+            <input type="email" name="email" />
+            <input type="tel" name="phone" />
+            <textarea name="message"></textarea>
+        </form>
+
         <!-- React app root element -->
         <div id="root"></div>
         <!-- Vite entry point -->
