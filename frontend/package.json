@@ -1,57 +1,81 @@
 {
-    "name": "mystic_village",
-    "version": "1.0.0",
-    "description": "website for mystic village apartments",
-    "main": "index.tsx",
-    "scripts": {
-        "test": "echo \"Error: no test specified\" && exit 1",
-        "build": "webpack --config webpack.config.js",
-        "start": "webpack-dev-server --config ./webpack.config.js",
-        "optimize-images": "node scripts/optimize-images-simple.js",
-        "test-performance": "node scripts/test-performance.js"
-    },
-    "repository": {
-        "type": "git",
-        "url": "git+https://github.com/Wu-Bowen/mystic_village.git"
-    },
-    "keywords": [],
-    "author": "ericwu692@yahoo.com",
-    "license": "ISC",
-    "bugs": {
-        "url": "https://github.com/Wu-Bowen/mystic_village/issues"
-    },
-    "homepage": "https://github.com/Wu-Bowen/mystic_village#readme",
-    "dependencies": {
-        "file-loader": "^6.2.0",
-        "intersection-observer": "^0.12.2",
-        "react": "^18.3.1",
-        "react-dom": "^18.3.1",
-        "react-hook-form": "^7.62.0",
-        "react-lazyload": "^3.2.1",
-        "react-responsive-carousel": "^3.2.22",
-        "react-router-dom": "^7.8.1",
-        "sharp": "^0.34.3",
-        "url-loader": "^4.1.1"
-    },
-    "devDependencies": {
-        "@types/react": "^18.3.23",
-        "@types/react-dom": "^18.3.7",
-        "@types/react-lazyload": "^3.2.3",
-        "@types/webpack": "4.1.4",
-        "@webpack-cli/serve": "^1.6.1",
-        "css-loader": "^6.6.0",
-        "html-webpack-plugin": "^4.5.2",
-        "imagemin": "^9.0.1",
-        "imagemin-mozjpeg": "^10.0.0",
-        "imagemin-webp": "^8.0.0",
-        "node-sass": "^7.0.1",
-        "sass": "^1.49.7",
-        "sass-loader": "^12.4.0",
-        "style-loader": "^3.3.1",
-        "ts-loader": "^6.2.1",
-        "typescript": "^5.9.2",
-        "webpack": "^5.68.0",
-        "webpack-cli": "^4.9.2",
-        "webpack-dev-server": "^4.7.4"
-    }
+  "name": "mystic_village",
+  "version": "1.0.0",
+  "description": "website for mystic village apartments",
+  "main": "index.tsx",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "start": "vite",
+    "test": "vitest",
+    "test:ui": "vitest --ui",
+    "test:run": "vitest run",
+    "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
+    "lint:fix": "eslint . --ext ts,tsx --fix",
+    "format": "prettier --write \"src/**/*.{ts,tsx,css,scss,json}\"",
+    "format:check": "prettier --check \"src/**/*.{ts,tsx,css,scss,json}\"",
+    "optimize-images": "node scripts/optimize-images-simple.js",
+    "test-performance": "node scripts/test-performance.js",
+    "prepare": "husky"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Wu-Bowen/mystic_village.git"
+  },
+  "keywords": [],
+  "author": "ericwu692@yahoo.com",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Wu-Bowen/mystic_village/issues"
+  },
+  "homepage": "https://github.com/Wu-Bowen/mystic_village#readme",
+  "lint-staged": {
+    "*.{ts,tsx}": [
+      "eslint --fix",
+      "prettier --write"
+    ],
+    "*.{css,scss,json}": [
+      "prettier --write"
+    ]
+  },
+  "dependencies": {
+    "intersection-observer": "^0.12.2",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "react-hook-form": "^7.62.0",
+    "react-lazyload": "^3.2.1",
+    "react-responsive-carousel": "^3.2.22",
+    "react-router-dom": "^7.8.1",
+    "sharp": "^0.34.3"
+  },
+  "devDependencies": {
+    "@testing-library/jest-dom": "^6.9.1",
+    "@testing-library/react": "^16.3.0",
+    "@testing-library/user-event": "^14.6.1",
+    "@types/react": "^18.3.23",
+    "@types/react-dom": "^18.3.7",
+    "@types/react-lazyload": "^3.2.3",
+    "@typescript-eslint/eslint-plugin": "^8.48.1",
+    "@typescript-eslint/parser": "^8.48.1",
+    "@vitejs/plugin-react": "^4.7.0",
+    "@vitest/ui": "^4.0.15",
+    "eslint": "^8.57.1",
+    "eslint-config-prettier": "^10.1.8",
+    "eslint-plugin-prettier": "^5.5.4",
+    "eslint-plugin-react": "^7.37.5",
+    "eslint-plugin-react-hooks": "^7.0.1",
+    "eslint-plugin-react-refresh": "^0.4.24",
+    "husky": "^9.1.7",
+    "imagemin": "^9.0.1",
+    "imagemin-mozjpeg": "^10.0.0",
+    "imagemin-webp": "^8.0.0",
+    "jsdom": "^27.0.1",
+    "lint-staged": "^16.2.7",
+    "prettier": "^3.7.4",
+    "sass": "^1.94.2",
+    "typescript": "^5.9.2",
+    "vite": "^6.4.1",
+    "vitest": "^4.0.15"
+  }
 }
