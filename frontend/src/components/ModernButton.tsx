@@ -1,60 +1,40 @@
-import React from 'react';
+import { ReactNode } from 'react';
 
 interface ModernButtonProps {
-    children: React.ReactNode;
-    onClick: () => void;
-    isActive?: boolean;
-    className?: string;
-    disabled?: boolean;
+  children: ReactNode;
+  onClick: () => void;
+  isActive?: boolean;
+  className?: string;
+  disabled?: boolean;
 }
 
-export const ModernButton: React.FC<ModernButtonProps> = ({
-    children,
-    onClick,
-    isActive = false,
-    className = '',
-    disabled = false
-}) => {
-    const baseStyles: React.CSSProperties = {
-        backgroundColor: isActive ? '#1d2959' : '#adc6ed',
-        borderColor: '#1d2959',
-        borderRadius: '8px',
-        color: isActive ? '#dfe6f2' : 'black',
-        fontSize: '18px',
-        height: '50px',
-        border: `2px solid #1d2959`,
-        cursor: disabled ? 'not-allowed' : 'pointer',
-        transition: 'all 0.2s ease',
-        padding: '0 20px',
-        fontWeight: '500',
-        outline: 'none',
-        opacity: disabled ? 0.6 : 1,
-    };
+export const ModernButton = ({
+  children,
+  onClick,
+  isActive = false,
+  className = '',
+  disabled = false,
+}: ModernButtonProps) => {
+  const buttonClasses = `
+    ${
+      isActive
+        ? 'bg-navy text-white'
+        : 'bg-blue-200 text-black hover:bg-navy-dark hover:text-white'
+    }
+    border-2 border-navy rounded-lg text-lg h-12 px-5 font-medium
+    transition-all duration-200 ease-in-out outline-none
+    ${disabled ? 'opacity-60 cursor-not-allowed' : 'cursor-pointer'}
+    ${className}
+  `;
 
-    const handleMouseEnter = (e: React.MouseEvent<HTMLButtonElement>) => {
-        if (!disabled && !isActive) {
-            e.currentTarget.style.backgroundColor = '#213069';
-            e.currentTarget.style.color = '#dfe6f2';
-        }
-    };
-
-    const handleMouseLeave = (e: React.MouseEvent<HTMLButtonElement>) => {
-        if (!disabled && !isActive) {
-            e.currentTarget.style.backgroundColor = '#adc6ed';
-            e.currentTarget.style.color = 'black';
-        }
-    };
-
-    return (
-        <button
-            style={baseStyles}
-            onClick={onClick}
-            onMouseEnter={handleMouseEnter}
-            onMouseLeave={handleMouseLeave}
-            className={className}
-            disabled={disabled}
-        >
-            {children}
-        </button>
-    );
+  return (
+    <button
+      className={buttonClasses}
+      onClick={onClick}
+      disabled={disabled}
+      type="button"
+    >
+      {children}
+    </button>
+  );
 };

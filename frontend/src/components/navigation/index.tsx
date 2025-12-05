@@ -1,126 +1,124 @@
-import React, { useEffect, useState } from 'react';
-import { NavPortal } from './navportal';
+import { useEffect, useState } from 'react';
 import { NavMenu } from './navmenu';
-import sign from './../../assets/images/sign.png';
+import logo from './../../assets/images/logo.png';
 import { Link } from 'react-router-dom';
-import '../styles/navigation.scss';
 import { deviceScreenType, getDeviceScreenType } from '../../utils/functions';
 import favicon from './../../assets/images/favicon.png';
-// import { IButtonStyles, IconButton } from '@fluentui/react'; // Temporarily disabled for React 18 migration
 import { NavItem } from './navitem';
 
-// Navigation button styles temporarily disabled for React 18 migration
-// const navButtonStyles: IButtonStyles = {
-//     root: {
-//         margin: '10px',
-//         backgroundColor: 'transparent',
-//         '&:hover': {
-//             backgroundColor: 'transparent',
-//         },
-//         ':active': {
-//             backgroundColor: 'transparent',
-//         },
-//         ':focus': {
-//             backgroundColor: 'transparent',
-//         },
-//     },
-// };
-
 export const Navbar = (): JSX.Element => {
-    const [screenType, setScreenType] = useState(getDeviceScreenType());
-    const [isNavOpen, setIsNavOpen] = useState(false);
+  const [screenType, setScreenType] = useState(getDeviceScreenType());
+  const [isNavOpen, setIsNavOpen] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
 
-    useEffect(() => {
-        document.body.style.overflow = isNavOpen ? 'hidden' : 'unset';
-    }, [isNavOpen]);
+  useEffect(() => {
+    document.body.style.overflow = isNavOpen ? 'hidden' : 'unset';
+  }, [isNavOpen]);
 
-    useEffect(() => {
-        function handleResize() {
-            setScreenType(getDeviceScreenType());
-        }
+  useEffect(() => {
+    function handleResize() {
+      setScreenType(getDeviceScreenType());
+    }
 
-        window.addEventListener('resize', handleResize);
-        return () => window.removeEventListener('resize', handleResize);
-    }, []);
+    function handleScroll() {
+      setIsScrolled(window.scrollY > 20);
+    }
 
-    const closeNav = () => {
-        setIsNavOpen(false);
+    window.addEventListener('resize', handleResize);
+    window.addEventListener('scroll', handleScroll);
+    return () => {
+      window.removeEventListener('resize', handleResize);
+      window.removeEventListener('scroll', handleScroll);
     };
+  }, []);
 
-    return (
-        <div className="nav">
-            {screenType === deviceScreenType.large ? <NavPortal /> : null}
-            {screenType === deviceScreenType.mobile ? (
-                <>
-                    <div className="navTopMobile">
-                        <div className="navTopMobileLeft">
-                            <Link to="./">
-                                <img
-                                    src={favicon}
-                                    width={48}
-                                    style={{ padding: '5px' }}
-                                />
-                            </Link>
-                            <h4> Mystic Village Apartments</h4>
-                        </div>
-                        <button
-                            style={{margin: '10px', backgroundColor: 'transparent', border: 'none', fontSize: '30px', color: '#1d2959', cursor: 'pointer'}}
-                            onClick={() => {
-                                setIsNavOpen(!isNavOpen);
-                            }}
-                        >
-                            ☰
-                        </button>
-                    </div>
-                    <div className="navMobile-menu"> </div>
-                    <div className="navTopMobile-margin"> </div>
-                </>
-            ) : (
-                <div className="navTop">
-                    <div className="logo">
-                        <Link to="./">
-                            <img
-                                src={sign}
-                                width={
-                                    screenType === deviceScreenType.medium
-                                        ? 300
-                                        : 400
-                                }
-                            />
-                        </Link>
-                    </div>
-                    <NavMenu />
-                </div>
-            )}
-            {isNavOpen ? (
-                <div className="nav-mobile-menu">
-                    <NavItem
-                        name="Home"
-                        location="/"
-                        isMobile
-                        onClickCallback={closeNav}
-                    />
-                    <NavItem
-                        name="Our Community"
-                        location="community"
-                        isMobile
-                        onClickCallback={closeNav}
-                    />
-                    <NavItem
-                        name="Available Rentals"
-                        location="apartments"
-                        isMobile
-                        onClickCallback={closeNav}
-                    />
-                    {/* <NavItem name="Schedule Tour" location="tour" /> */}
-                    <NavItem
-                        name="Contact Us"
-                        location="contact"
-                        isMobile
-                        onClickCallback={closeNav}
-                    />
-                </div>
-            ) : null}
+  const closeNav = () => {
+    setIsNavOpen(false);
+  };
+
+  return (
+    <nav
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+        isScrolled ? 'bg-white shadow-lg py-2' : 'bg-white/95 backdrop-blur-sm py-3'
+      }`}
+    >
+      <div className="container-custom">
+        {screenType === deviceScreenType.mobile ? (
+          /* Mobile Navigation */
+          <div className="flex items-center justify-between">
+            <Link to="./" className="flex items-center gap-2">
+              <img
+                src={favicon}
+                width={36}
+                height={36}
+                alt="Mystic Village"
+                className="rounded-lg"
+              />
+              <span className="text-navy font-bold text-base">
+                Mystic Village
+              </span>
+            </Link>
+            <button
+              className="text-3xl text-navy hover:text-navy-light transition-colors p-2"
+              onClick={() => setIsNavOpen(!isNavOpen)}
+              aria-label="Toggle menu"
+            >
+              ☰
+            </button>
+          </div>
+        ) : (
+          /* Desktop Navigation */
+          <div className="flex items-center justify-between">
+            <Link to="./" className="hover:opacity-90 transition-opacity">
+              <img
+                src={logo}
+                height={60}
+                width={60}
+                alt="Mystic Village Apartments"
+                className="h-auto"
+              />
+            </Link>
+            <NavMenu />
+          </div>
+        )}
+      </div>
+
+      {/* Mobile Menu Overlay */}
+      {isNavOpen && (
+        <div className="fixed inset-0 bg-navy z-50 flex flex-col">
+          {/* Close Button */}
+          <button
+            className="absolute top-6 right-6 text-5xl text-gold hover:text-gold-light transition-colors leading-none"
+            onClick={closeNav}
+            aria-label="Close menu"
+          >
+            ×
+          </button>
+
+          {/* Menu Items */}
+          <div className="flex-1 flex flex-col items-center justify-center gap-2">
+            <NavItem name="Home" location="/" isMobile onClickCallback={closeNav} />
+            <NavItem
+              name="Our Community"
+              location="community"
+              isMobile
+              onClickCallback={closeNav}
+            />
+            <NavItem
+              name="Available Rentals"
+              location="apartments"
+              isMobile
+              onClickCallback={closeNav}
+            />
+            <NavItem
+              name="Contact Us"
+              location="contact"
+              isMobile
+              onClickCallback={closeNav}
+            />
+          </div>
         </div>
-    );
+      )}
+    </nav>
+  );
 };

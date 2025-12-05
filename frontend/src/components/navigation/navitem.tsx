@@ -1,79 +1,78 @@
-import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import { ModernButton } from '../ModernButton';
 
-// FluentUI styles removed - using ModernButton component instead
-
 interface NavItemProps {
-    name: string;
-    isMobile?: boolean;
-    buttonType?: string;
-    location?: string;
-    disabled?: boolean;
-    onClickCallback?: () => void;
+  name: string;
+  isMobile?: boolean;
+  buttonType?: string;
+  location?: string;
+  disabled?: boolean;
+  onClickCallback?: () => void;
 }
 
-// Removed calloutProps for FluentUI
-
 export const NavItem = ({
-    isMobile,
-    name,
-    buttonType,
-    location,
-    disabled,
-    onClickCallback,
+  isMobile,
+  name,
+  buttonType,
+  location,
+  disabled,
+  onClickCallback,
 }: NavItemProps): JSX.Element => {
-    const navigate = useNavigate();
-    // Removed useId hook for FluentUI
+  const navigate = useNavigate();
 
-    const linkClicked = (location: string): void => {
-        navigate(location);
-    };
-    if (buttonType === 'portalButton') {
-        return disabled ? (
-            <div title="Currently Under Development" style={{display: 'inline-block'}}>
-                <ModernButton
-                    onClick={() => {
-                        linkClicked(location);
-                        onClickCallback?.();
-                    }}
-                    disabled={disabled}
-                    className="portal-button"
-                >
-                    {name}
-                </ModernButton>
-            </div>
-        ) : (
-            <ModernButton
-                onClick={() => {
-                    linkClicked(location);
-                    onClickCallback?.();
-                }}
-                className="portal-button"
-                disabled={disabled}
-            >
-                {name}
-            </ModernButton>
-        );
-    }
-    return (
-        <button
-            style={{
-                fontSize: isMobile ? '22px' : '18px',
-                margin: isMobile ? '50px 0 40px 0' : '0 4vw 40px 4vw',
-                color: isMobile ? '#f3d89e' : 'inherit',
-                background: 'transparent',
-                border: 'none',
-                cursor: 'pointer',
-                padding: '10px'
-            }}
-            onClick={() => {
-                linkClicked(location);
-                onClickCallback?.();
-            }}
-            disabled={false}
+  const linkClicked = (location: string): void => {
+    navigate(location);
+  };
+
+  if (buttonType === 'portalButton') {
+    return disabled ? (
+      <div title="Currently Under Development" className="inline-block">
+        <ModernButton
+          onClick={() => {
+            linkClicked(location);
+            onClickCallback?.();
+          }}
+          disabled={disabled}
+          className="portal-button"
         >
-            {name}
-        </button>
+          {name}
+        </ModernButton>
+      </div>
+    ) : (
+      <ModernButton
+        onClick={() => {
+          linkClicked(location);
+          onClickCallback?.();
+        }}
+        className="portal-button"
+        disabled={disabled}
+      >
+        {name}
+      </ModernButton>
     );
+  }
+
+  return (
+    <button
+      className={`
+        ${
+          isMobile
+            ? 'text-2xl my-8 text-gold hover:text-gold-light'
+            : 'text-base mx-4 text-navy hover:text-gold'
+        }
+        bg-transparent border-none cursor-pointer px-4 py-2
+        transition-all duration-300 font-semibold
+        relative after:absolute after:bottom-0 after:left-0 after:right-0
+        after:h-0.5 after:bg-current after:scale-x-0 hover:after:scale-x-100
+        after:transition-transform after:duration-300
+      `}
+      onClick={() => {
+        linkClicked(location);
+        onClickCallback?.();
+      }}
+      disabled={false}
+    >
+      {name}
+    </button>
+  );
 };

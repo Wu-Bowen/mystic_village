@@ -1,8 +1,6 @@
-import React, { ReactChild, useEffect, useState } from 'react';
+import { ReactChild, useState } from 'react';
 import 'react-responsive-carousel/lib/styles/carousel.min.css';
-import './styles/carousel.scss';
 import { Carousel } from 'react-responsive-carousel';
-import { LazyImage } from './LazyImage';
 import { CircleIcon } from './CircleIcon';
 
 interface newElement {
@@ -49,33 +47,35 @@ export const OptimizedImageCarousel = ({
     };
 
     return (
-        <Carousel
-            showIndicators={false}
-            width={isMobile ? '90%' : '55%'}
-            thumbWidth={30}
-            interval={10000}
-            autoPlay
-            infiniteLoop
-            renderThumbs={customRenderThumb}
-            onChange={handleChange}
-            swipeable={true}
-            emulateTouch={true}
-            showStatus={false}
-            showArrows={!isMobile}
-        >
-            {images.map((image, i) => {
-                return (
-                    <div key={i} className="carousel-slide">
-                        <img
-                            src={image}
-                            alt={`Apartment image ${i + 1}`}
-                            className="carousel-image"
-                            style={{ width: '100%', height: 'auto' }}
-                            loading="lazy"
-                        />
-                    </div>
-                );
-            })}
-        </Carousel>
+        <div className="w-full">
+            <Carousel
+                showIndicators={false}
+                width="100%"
+                thumbWidth={isMobile ? 25 : 30}
+                interval={10000}
+                autoPlay
+                infiniteLoop
+                renderThumbs={customRenderThumb}
+                onChange={handleChange}
+                swipeable={true}
+                emulateTouch={true}
+                showStatus={false}
+                showArrows={!isMobile}
+                className="carousel-container"
+            >
+                {images.map((image, i) => {
+                    return (
+                        <div key={i} className="flex items-center justify-center bg-gray-50">
+                            <img
+                                src={image}
+                                alt={`Apartment image ${i + 1}`}
+                                className="w-full h-auto object-contain max-h-[350px] lg:max-h-[450px]"
+                                loading="lazy"
+                            />
+                        </div>
+                    );
+                })}
+            </Carousel>
+        </div>
     );
 };

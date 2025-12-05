@@ -1,0 +1,102 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Base styles */
+@layer base {
+  body {
+    @apply m-0 font-sans antialiased;
+  }
+
+  * {
+    box-sizing: border-box;
+  }
+}
+
+/* Custom component classes */
+@layer components {
+  /* Button variants */
+  .btn {
+    @apply px-6 py-3 rounded-lg font-medium transition-all duration-300 cursor-pointer;
+  }
+
+  .btn-primary {
+    @apply bg-navy text-white hover:bg-navy-light hover:shadow-lg transform hover:-translate-y-0.5;
+  }
+
+  .btn-secondary {
+    @apply bg-gold text-navy hover:bg-gold-dark hover:shadow-lg transform hover:-translate-y-0.5;
+  }
+
+  .btn-outline {
+    @apply border-2 border-navy text-navy hover:bg-navy hover:text-white;
+  }
+
+  /* Container */
+  .container-custom {
+    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+  }
+
+  /* Card */
+  .card {
+    @apply bg-white rounded-lg shadow-card overflow-hidden transition-shadow duration-300 hover:shadow-xl;
+  }
+
+  /* Section spacing */
+  .section {
+    @apply py-12 md:py-16 lg:py-24;
+  }
+
+  /* Heading styles */
+  .heading-1 {
+    @apply text-4xl md:text-5xl lg:text-6xl font-bold text-navy;
+  }
+
+  .heading-2 {
+    @apply text-3xl md:text-4xl lg:text-5xl font-bold text-navy;
+  }
+
+  .heading-3 {
+    @apply text-2xl md:text-3xl lg:text-4xl font-semibold text-navy;
+  }
+}
+
+/* Custom utilities */
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
+
+/* Carousel custom styles */
+.carousel-container .carousel .slider-wrapper {
+  overflow: visible !important;
+}
+
+.carousel-container .carousel .slider {
+  overflow: visible !important;
+}
+
+.carousel-container .carousel .control-arrow {
+  @apply opacity-80 hover:opacity-100 transition-opacity;
+}
+
+.carousel-container .carousel .control-prev.control-arrow:before {
+  border-right-color: theme('colors.navy.DEFAULT');
+}
+
+.carousel-container .carousel .control-next.control-arrow:before {
+  border-left-color: theme('colors.navy.DEFAULT');
+}
+
+.carousel-container .carousel .thumbs-wrapper {
+  @apply mt-4;
+}
+
+.carousel-container .carousel .thumbs {
+  @apply flex gap-2 justify-center items-center;
+}
+
+.carousel-container .carousel .thumb {
+  @apply cursor-pointer opacity-50 hover:opacity-100 transition-opacity;
+}
